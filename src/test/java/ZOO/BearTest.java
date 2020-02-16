@@ -1,6 +1,8 @@
-package Species;
+package ZOO;
 
-import org.junit.Assert;
+import ZOO.Species.BlackBear;
+import ZOO.Species.PolarBear;
+import ZOO.Species.TeddyBear;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

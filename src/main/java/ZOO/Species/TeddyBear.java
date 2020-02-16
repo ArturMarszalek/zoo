@@ -1,4 +1,6 @@
-package Species;
+package ZOO.Species;
+
+import ZOO.Bear;
 
 import java.time.LocalDate;
 
