@@ -24,23 +24,23 @@ class BearTest {
     void shouldIsAlife(){
         //given
         Bear bear = new Bear();
-        bear.setLastEatingTime(ZonedDateTime.now().plus(Period.ofDays(11)));
+        bear.setLastEatingTime(ZonedDateTime.now().minus(Period.ofDays(11)));
         //when
-        Boolean result = bear.isAlife();
+        Boolean result = bear.isAlive();
         //then
-        assertThat(result==false);
+        assertThat(result).isFalse();
     }
 
     @Test
     void shouldIsAlife2(){
         //given
         Bear bear = new Bear();
-        bear.setLastEatingTime(ZonedDateTime.now().plus(Period.ofDays(9)));
+        bear.setLastEatingTime(ZonedDateTime.now().minus(Period.ofDays(9)));
 //        ZonedDateTime actualTime = ZonedDateTime.now().plus(Period.ofDays(9));
         //when
-        Boolean result = bear.isAlife();
+        Boolean result = bear.isAlive();
         //then
-        assertThat(result==true);
+        assertThat(result).isTrue();
     }
 
 }

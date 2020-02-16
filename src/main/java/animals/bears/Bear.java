@@ -22,9 +22,9 @@ public class Bear extends Animal {
         return lastEatingTime;
     }
 
-    public boolean isAlife(){
+    public boolean isAlive(){
         ZonedDateTime actualTime = ZonedDateTime.now();
-        if (actualTime.isAfter(lastEatingTime.plus(Period.ofDays(10)))){
+        if (actualTime.minus(Period.ofDays(10)).isAfter(lastEatingTime)){
             return false;
         }
         return true;
