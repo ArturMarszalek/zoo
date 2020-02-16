@@ -13,15 +13,16 @@ class PolarBearTest {
 
     @BeforeEach
     void setUp() {
-        brownBear = new BrownBear();
+//        brownBear = new BrownBear();
         polarBear = new PolarBear();
-        blackBear = new BlackBear();
+//        blackBear = new BlackBear();
     }
 
 
 
     @Test
-    void shouldCheckisItStillAlive() {
+   public void shouldCheckisItStillAlive() {
+        polarBear.feedBear("mięso");
         boolean isAlive = polarBear.isItStillAlive();
         assertTrue(isAlive);
     }

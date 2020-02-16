@@ -1,17 +1,17 @@
 package zoo;
 
+import java.time.LocalDate;
+
 public abstract class Bear {
 
-    private boolean lastMeal;
+    private boolean lastMeal = false;
 
     boolean isItStillAlive() {
-        if(lastMeal == true){
-            return true;
-        }
-        return false;
+        return lastMeal;
     }
 
     public boolean feedBear(String foodtype) {
+        LocalDate feedTime = LocalDate.now();
         lastMeal = true;
         System.out.println("Jem " + foodtype + " nie przeszkadzaj!");
         return true;
