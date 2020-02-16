@@ -69,5 +69,8 @@ class TestBear {
         BlackBear blackBear= new BlackBear();
         blackBear.eat(50);
         assertEquals(250, blackBear.getWeight());
+        PlushBear plushBear = new PlushBear();
+        plushBear.eat(20);
+        assertEquals(0, plushBear.getWeight());
     }
 }

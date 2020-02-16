@@ -11,4 +11,8 @@ public class PlushBear extends Bear {
     public void eat(){
 
     }
+    @Override
+    public  void eat(int weigth){
+
+    }
 }
