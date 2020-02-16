@@ -23,7 +23,7 @@ public abstract class Bear {
     }
 
     public boolean isAlive() {
-        return lastMeal.isAfter((LocalDate.now().minusDays(10)));
+        return lastMeal.isAfter((LocalDate.now().minusDays(10))) && weight>0;
     }
 
     public void eat(int foodWeight) {
@@ -39,6 +39,7 @@ public abstract class Bear {
     }
 
     public String attack(Bear target) {
+        target.weight-=weight*0.5;
         return "You "+target.getName()+" are wounded by "+getName();
     }
 

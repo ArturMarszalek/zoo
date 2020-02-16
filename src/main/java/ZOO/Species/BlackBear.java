@@ -13,7 +13,7 @@ public class BlackBear extends Bear {
     }
 
     public BlackBear() {
-        super();
+
     }
 
     @Override

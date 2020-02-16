@@ -147,6 +147,7 @@ class BearTest {
         assertEquals(polarBear.display(), "I am Polar Bear");
         assertEquals(bronzeBear.display(), "I am Brown Bear");
     }
+
     @Test
     void PolarBearShouldKillBear() {
         //given
@@ -157,6 +158,7 @@ class BearTest {
         //then
         assertEquals(polarBear.attack(teddyBear), "You Teddy Bear are killed by Polar Bear");
     }
+
     @Test
     void BlackBearShouldKillBear() {
         //given
@@ -167,6 +169,7 @@ class BearTest {
         //then
         assertEquals(blackBear.attack(teddyBear), "You Teddy Bear are wounded by Black Bear");
     }
+
     @Test
     void TeddyBearShouldHugBear() {
         //given
@@ -176,6 +179,36 @@ class BearTest {
         teddyBear.attack(blackBear);
         //then
         assertEquals(teddyBear.attack(blackBear), "You Black Bear are hugged by Teddy Bear");
+    }
+
+    @Test
+    void shouldBrownBearDie() {
+        //given
+        Bear blackBear = new BlackBear(100);
+        Bear brownBear = new BronzeBear(200);
+        brownBear.eat();
+        //when
+        blackBear.attack(brownBear);
+        blackBear.attack(brownBear);
+        blackBear.attack(brownBear);
+        blackBear.attack(brownBear);
+        //then
+        assertFalse(brownBear.isAlive());
+    }
+
+    @Test
+    void shouldBearLoseWeight() {
+        //given
+        Bear blackBear = new BlackBear(100);
+        Bear brownBear = new BronzeBear(200);
+        brownBear.eat();
+        //when
+        blackBear.attack(brownBear);
+        blackBear.attack(brownBear);
+        blackBear.attack(brownBear);
+        //then
+        assertEquals(50, brownBear.weight);
+        assertTrue(brownBear.isAlive());
     }
 
 }

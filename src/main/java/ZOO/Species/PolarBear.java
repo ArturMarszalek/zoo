@@ -12,6 +12,10 @@ public class PolarBear extends Bear {
     public PolarBear() {
     }
 
+    public PolarBear(int weight) {
+        super(weight);
+    }
+
     @Override
     public String attack(Bear target) {
         return "You "+target.getName()+" are killed by "+getName();

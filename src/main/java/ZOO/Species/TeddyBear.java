@@ -12,6 +12,10 @@ public class TeddyBear extends Bear {
     public TeddyBear() {
     }
 
+    public TeddyBear(int weight) {
+        super(weight);
+    }
+
     @Override
     public boolean isAlive() {
         return false;

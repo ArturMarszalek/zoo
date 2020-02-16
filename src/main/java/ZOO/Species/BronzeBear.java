@@ -12,6 +12,10 @@ public class BronzeBear extends Bear {
     public BronzeBear() {
     }
 
+    public BronzeBear(int weight) {
+        super(weight);
+    }
+
     @Override
     public String getName() {
         return "Brown Bear";
