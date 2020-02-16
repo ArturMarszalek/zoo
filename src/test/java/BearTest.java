@@ -11,8 +11,24 @@ public class BearTest {
 
         LocalDate lastMeal = LocalDate.now();
         Bear blackBear = new Blackbear(lastMeal);
+        Bear polarBear = new PolarBear(lastMeal);
+
         //when
         boolean isAlive = blackBear.isAlive();
+        boolean isAlive1 = polarBear.isAlive();
+        //then
+        Assertions.assertTrue(isAlive);
+        Assertions.assertTrue(isAlive1);
+
+    }
+
+    @Test
+    void shouldBrownBearReturnTrueWhenAlive() {
+        //given
+        LocalDate lastMeal = LocalDate.now();
+        Bear brownBear = new BrownBear(lastMeal);
+        //when
+        boolean isAlive = brownBear.isAlive();
         //then
         Assertions.assertTrue(isAlive);
     }
@@ -37,6 +53,16 @@ public class BearTest {
         blackBear.eat();
         //then
         Assertions.assertTrue(blackBear.getMealTime().isEqual(now));
+    }
 
+    @Test
+    void shouldTeddyBearAteMeal() {
+        //given
+        LocalDate now = LocalDate.now();
+        Bear teddyBear = new TeddyBear(now);
+        //when
+        teddyBear.eat();
+        //then
+        Assertions.assertNull(teddyBear.mealTime);
     }
 }
