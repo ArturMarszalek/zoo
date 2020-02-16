@@ -19,4 +19,9 @@ public class TeddyBear extends Bear {
 
     }
 
+    @Override
+    protected String getName() {
+        return null;
+    }
+
 }

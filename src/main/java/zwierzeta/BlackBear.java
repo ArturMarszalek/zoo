@@ -16,4 +16,9 @@ public class BlackBear extends Bear {
     public BlackBear(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }
+
+    @Override
+    protected String getName() {
+        return "Czarnym";
+    }
 }

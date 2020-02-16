@@ -12,4 +12,9 @@ public class PolarBear extends Bear {
     public PolarBear(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }
+
+    @Override
+    protected String getName() {
+        return "Polarnym";
+    }
 }

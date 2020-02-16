@@ -2,6 +2,7 @@ package zwierzeta;
 
 import java.time.LocalDate;
 
+
 public abstract class Bear {
 
     protected LocalDate lastMeal;
@@ -14,7 +15,7 @@ public abstract class Bear {
         return weight;
     }
 
-    public boolean isAlive(){
+    public boolean isAlive() {
         return lastMeal.isAfter(LocalDate.now().minusDays(10));
     }
 
@@ -30,5 +31,10 @@ public abstract class Bear {
     public LocalDate getMealTime() {
         return mealTime;
     }
-}
 
+    public String display() {
+        return "jestem niedzwiedziem " + getName() ;
+    }
+
+    protected abstract String getName();
+}

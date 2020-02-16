@@ -77,6 +77,18 @@ public class BlackBearTest {
         Assertions.assertEquals(200, polarBear.getWeight());
     }
 
+    @Test
+    void shouldPrintKindOfBear() {
+        //given
 
+        Bear blackBear = new BlackBear();
+        Bear polarBear = new PolarBear();
+        Bear bronzeBear = new BrownBear();
+        //when
+        //then
+        assertEquals(blackBear.display(), "jestem niedzwiedziem Czarnym");
+        assertEquals(polarBear.display(), "jestem niedzwiedziem Polarnym");
+        assertEquals(bronzeBear.display(), "jestem niedzwiedziem Brunatnym");
+    }
 }
 
