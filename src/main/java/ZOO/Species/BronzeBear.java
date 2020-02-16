@@ -13,7 +13,7 @@ public class BronzeBear extends Bear {
     }
 
     @Override
-    protected String getName() {
+    public String getName() {
         return " brazowy";
     }
 

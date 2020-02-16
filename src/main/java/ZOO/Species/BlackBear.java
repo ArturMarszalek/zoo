@@ -17,7 +17,7 @@ public class BlackBear extends Bear {
     }
 
     @Override
-    protected String getName() {
+    public String getName() {
         return " czarny";
     }
 

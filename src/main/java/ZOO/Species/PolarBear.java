@@ -11,14 +11,18 @@ public class PolarBear extends Bear {
 
     public PolarBear() {
     }
-
     @Override
     public String attack() {
-        return "You are killed by Bear";
+        return "You got are killed by bear";
     }
 
     @Override
-    protected String getName() {
+    public String attack(Bear target) {
+        return "You"+target.getName()+" are killed by"+getName();
+    }
+
+    @Override
+    public String getName() {
         return " polarny";
     }
 

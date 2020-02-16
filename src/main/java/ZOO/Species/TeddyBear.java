@@ -22,7 +22,13 @@ public class TeddyBear extends Bear {
     }
 
     @Override
-    protected String getName() {
+    public String getName() {
         return " pluszowy";
     }
+
+    @Override
+    public String attack(Bear target) {
+        return "You"+target.getName()+" are hugged by"+getName();
+    }
+
 }

@@ -167,4 +167,35 @@ class BearTest {
         assertEquals(polarBear.display(), "jestem niedziwedziem polarnym");
         assertEquals(bronzeBear.display(), "jestem niedziwedziem brazowym");
     }
+    @Test
+    void PolarBearShouldKillBear() {
+        //given
+        Bear polarBear = new PolarBear();
+        Bear teddyBear = new TeddyBear();
+        //when
+        polarBear.attack(teddyBear);
+        //then
+        assertEquals(polarBear.attack(teddyBear), "You pluszowy are killed by polarny");
+    }
+    @Test
+    void BlackBearShouldKillBear() {
+        //given
+        Bear blackBear = new BlackBear();
+        Bear teddyBear = new TeddyBear();
+        //when
+        blackBear.attack(teddyBear);
+        //then
+        assertEquals(blackBear.attack(teddyBear), "You pluszowy are wounded by czarny");
+    }
+    @Test
+    void TeddyBearShouldHugBear() {
+        //given
+        Bear blackBear = new BlackBear();
+        Bear teddyBear = new TeddyBear();
+        //when
+        teddyBear.attack(blackBear);
+        //then
+        assertEquals(teddyBear.attack(blackBear), "You czarny are hugged by pluszowy");
+    }
+
 }

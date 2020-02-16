@@ -37,15 +37,17 @@ public abstract class Bear {
     public LocalDate getLastMeal() {
         return lastMeal;
     }
-
     public String attack() {
-        return "You are wounded by Bear";
+        return "You got are wounded by bear";
+    }
+    public String attack(Bear target) {
+        return "You"+target.getName()+" are wounded by"+getName();
     }
 
     public String display(){
         return "jestem niedziwedziem" + getName()+"m";
     }
 
-    protected abstract String getName();
+    public abstract String getName();
 
 }
