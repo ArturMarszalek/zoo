@@ -1,12 +1,17 @@
 import java.time.LocalDate;
 
-public class Bear {
+public abstract class Bear {
     protected LocalDate lastMeal;
     protected int weight;
+
+    public abstract String getName();
+
+    public abstract String attack(Bear target);
 
     public Bear() {
         this(null);
     }
+
     public Bear(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }
@@ -23,4 +28,10 @@ public class Bear {
     public int getWeight() {
         return weight;
     }
+
+    public String display() {
+        return "Jestem " + getName();
+    }
+
 }
+

@@ -73,4 +73,42 @@ class BlackBearTest {
         //then
         assertEquals(133, teddyBear.getWeight());
     }
+
+    @Test
+    void shouldBearDisplay() {
+        //given
+        TeddyBear teddyBear = new TeddyBear();
+        BlackBear blackBear = new BlackBear();
+        BrownBear brownBear = new BrownBear();
+        PolarBear polarBear = new PolarBear();
+        //when
+        teddyBear.display();
+        blackBear.display();
+        brownBear.display();
+        polarBear.display();
+        //then
+        assertEquals("Jestem pluszowy", teddyBear.display());
+        assertEquals("Jestem czarny", blackBear.display());
+        assertEquals("Jestem brazowy", brownBear.display());
+        assertEquals("Jestem polarny", polarBear.display());
+    }
+
+    @Test
+    void shouldBearAttack() {
+        //given
+        TeddyBear teddyBear = new TeddyBear();
+        BlackBear blackBear = new BlackBear();
+        BrownBear brownBear = new BrownBear();
+        PolarBear polarBear = new PolarBear();
+        //when
+        teddyBear.attack(blackBear);
+        blackBear.attack(brownBear);
+        brownBear.attack(polarBear);
+        polarBear.attack(teddyBear);
+        //then
+        assertEquals("Ja pluszowy glaszcze czarny", teddyBear.attack(blackBear));
+        assertEquals("Ja czarny zabijam brazowy", blackBear.attack(brownBear));
+        assertEquals("Ja brazowy zabijam polarny", brownBear.attack(polarBear));
+        assertEquals("Ja polarny sciskam pluszowy", polarBear.attack(teddyBear));
+    }
 }
