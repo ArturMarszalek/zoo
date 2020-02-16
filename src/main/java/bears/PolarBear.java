@@ -34,4 +34,6 @@ public class PolarBear extends Bear {
     public String getAttack() {
         return "zabiłeś przeciwnika przeciwnika";
     }
+
+
 }

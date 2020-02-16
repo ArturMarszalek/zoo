@@ -114,11 +114,16 @@ public class BearTest {
         TeddyBear teddyBear = new TeddyBear();
         Bear polarBear = new PolarBear();
         Bear blackBear = new BlackBear();
+
         //when
+        polarBear.setName("JACEK");
+        teddyBear.setName("PLACEK");
+        blackBear.setName("CYCEK");
+
         //then
-        assertEquals("Zaatakowałeś i zraniłeś przeciwnika", blackBear.attack());
-        assertEquals("Zaatakowałeś i zabiłeś przeciwnika przeciwnika", polarBear.attack());
-        assertEquals("Zaatakowałeś i gówno zrobiłeś bo jesteś pluszakiem", teddyBear.attack());
+        assertEquals("Zaatakowałeś JACEK i zraniłeś przeciwnika", blackBear.attack(polarBear));
+        assertEquals("Zaatakowałeś PLACEK i zabiłeś przeciwnika przeciwnika", polarBear.attack(teddyBear));
+        assertEquals("Zaatakowałeś CYCEK i gówno zrobiłeś bo jesteś pluszakiem", teddyBear.attack(blackBear));
 
     }
 }

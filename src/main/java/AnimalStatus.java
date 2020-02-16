@@ -18,7 +18,6 @@ public class AnimalStatus {
         polarBear.display();
 
 
-        blackBear.attack();
-        teddyBear.attack();
+
     }
 }

@@ -24,4 +24,5 @@ public class BrownBear extends Bear {
     public String getAttack() {
         return "zraniłeś przeciwnika";
     }
+
 }

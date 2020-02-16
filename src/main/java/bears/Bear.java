@@ -11,6 +11,7 @@ public class Bear {
     protected LocalDate lastMeal;
     protected LocalDate dateOfMeal;
     protected String attack;
+    protected String target;
 
     public Bear(){
     }
@@ -57,8 +58,8 @@ public class Bear {
         this.name = name;
     }
 
-    public String attack(){
-        return "Zaatakowałeś i " + getAttack();
+    public String attack(Bear target){
+        return "Zaatakowałeś " + target.getName() + " i " + getAttack();
     }
 
     public String getAttack() {
@@ -68,4 +69,5 @@ public class Bear {
     public void setAttack(String attack) {
         this.attack = attack;
     }
+
 }
