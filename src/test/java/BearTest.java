@@ -27,4 +27,16 @@ public class BearTest {
         //then
         Assertions.assertFalse(isAlive);
     }
+
+    @Test
+    void shouldBearAteMeal() {
+        //given
+        LocalDate now = LocalDate.now();
+        Bear blackBear = new Blackbear(now);
+        //when
+        blackBear.eat();
+        //then
+        Assertions.assertTrue(blackBear.getMealTime().isEqual(now));
+
+    }
 }

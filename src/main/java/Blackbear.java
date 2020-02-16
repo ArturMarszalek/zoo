@@ -6,6 +6,8 @@ public class Blackbear extends Bear {
         this.lastMeal = lastMeal;
     }
 
+
+
     public boolean isAlive() {
         return lastMeal.isAfter(LocalDate.now().minusDays(10));
     }
