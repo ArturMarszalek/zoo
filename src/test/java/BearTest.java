@@ -1,14 +1,18 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class AnimalTest {
+import java.time.LocalDate;
+
+public class BearTest {
 
     @Test
     void shouldReturnTrueWhenAnimalIsAlive() {
         //given
-        Animal blacBear = new Blackbear();
+
+        LocalDate lastMeal = LocalDate.now();
+        Bear blackBear = new Blackbear(lastMeal);
         //when
-        boolean isAlive = blacBear.isAlive();
+        boolean isAlive = blackBear.isAlive();
         //then
         Assertions.assertTrue(isAlive);
     }
@@ -16,9 +20,10 @@ public class AnimalTest {
     @Test
     void shouldReturnFalseWhenAnimalIsNotAlive() {
         //given
-        Animal blacBear = new Blackbear();
+        LocalDate now = LocalDate.now().minusDays(11);
+        Bear blackBear = new Blackbear(now);
         //when
-        boolean isAlive = blacBear.isAlive();
+        boolean isAlive = blackBear.isAlive();
         //then
         Assertions.assertFalse(isAlive);
     }

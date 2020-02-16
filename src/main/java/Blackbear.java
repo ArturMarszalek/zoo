@@ -1,11 +1,12 @@
+import java.time.LocalDate;
 
+public class Blackbear extends Bear {
 
-public class Blackbear extends Animal {
+    public Blackbear(LocalDate lastMeal) {
+        this.lastMeal = lastMeal;
+    }
 
-
-    @Override
     public boolean isAlive() {
-
-        return false;
+        return lastMeal.isAfter(LocalDate.now().minusDays(10));
     }
 }
