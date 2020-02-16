@@ -17,4 +17,9 @@ public class BrownBear extends Bear {
     public String getName() {
         return "Brown Bear";
     }
+
+    @Override
+    public String attack() {
+        return "Zostales zaatakowany przez brązowego niedziweidza, ale jeszcze żyjesz!";
+    }
 }

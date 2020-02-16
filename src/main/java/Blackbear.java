@@ -20,4 +20,9 @@ public class Blackbear extends Bear {
     public String getName() {
         return "Black Bear";
     }
+
+    @Override
+    public String attack() {
+        return "Zostales zaatakowany przez czarnego niedziweidza, ale jeszcze żyjesz!";
+    }
 }

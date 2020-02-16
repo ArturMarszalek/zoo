@@ -5,12 +5,12 @@ public abstract class Bear {
     protected LocalDate lastMeal;
     protected LocalDate mealTime;
 
-
-
     int weight;
     int mealWeight;
 
     public abstract String getName();
+
+    public abstract String attack();
 
     public int getWeight() {
         return weight;
@@ -19,6 +19,8 @@ public abstract class Bear {
     public String display(){
         return "Jestem "  + getName();
     }
+
+
 
     public boolean isAlive(){
         return lastMeal.isAfter(LocalDate.now().minusDays(10));

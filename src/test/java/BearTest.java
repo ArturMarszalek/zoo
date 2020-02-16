@@ -93,6 +93,18 @@ public class BearTest {
         Assertions.assertEquals(blackBear.display(), "Jestem " + blackBear.getName());
         Assertions.assertEquals(brownBear.display(), "Jestem " + brownBear.getName());
         Assertions.assertEquals(polarBear.display(), "Jestem " + polarBear.getName());
+    }
 
+    @Test
+    void shouldBearsAttackYou() {
+        //given
+        Bear blackBear = new Blackbear();
+        Bear brownBear = new BrownBear();
+        Bear polarBear = new PolarBear();
+        //when
+        //then
+        Assertions.assertEquals(blackBear.attack(), "Zostales zaatakowany przez czarnego niedziweidza, ale jeszcze żyjesz!");
+        Assertions.assertEquals(brownBear.attack(), "Zostales zaatakowany przez brązowego niedziweidza, ale jeszcze żyjesz!");
+        Assertions.assertEquals(polarBear.attack(), "Nie masz szczescia, zostales zabity przez polarnego niedzwiedzia!");
     }
 }

@@ -13,6 +13,11 @@ public class TeddyBear extends Bear {
     }
 
     @Override
+    public String attack() {
+        return null;
+    }
+
+    @Override
     public boolean isAlive() {
         return false;
     }
