@@ -13,14 +13,6 @@ public abstract class Bear {
         this.lastMeal = lastMeal;
     }
 
-//    public Bear(int weight) {
-//        this.weight = weight;
-//    }
-//
-//    public Bear(String name){
-//        this.name=name;
-//    }
-
     public void setWeight(int weight) {
         this.weigth = weight;
     }
