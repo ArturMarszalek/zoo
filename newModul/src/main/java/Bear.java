@@ -7,6 +7,10 @@ public abstract class Bear {
         this.lastMeal= lastMeal;
     }
 
+    public LocalDate getLastMeal() {
+        return lastMeal;
+    }
+
     public boolean isAlive(){
 return lastMeal.isAfter(LocalDate.now().minusDays(10));
     }
