@@ -38,6 +38,16 @@ class BearTest {
         //when
         littleBlackBear.eat();
         //then
-
+        assertTrue(LocalDate.now().isEqual(littleBlackBear.getLastMeal()));
     }
+    @Test
+    void ShouldBearEatNowAndBeAlive() {
+        //given
+        Bear littleBlackBear = new BlackBear();
+        //when
+        littleBlackBear.eat();
+        //then
+        assertTrue(littleBlackBear.isAlive());
+    }
+
 }

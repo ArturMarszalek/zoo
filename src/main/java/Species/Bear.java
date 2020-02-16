@@ -3,7 +3,7 @@ package Species;
 import java.time.LocalDate;
 
 public abstract class Bear {
-    public LocalDate lastMeal;
+    protected LocalDate lastMeal;
 
     public Bear(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
@@ -18,6 +18,15 @@ public abstract class Bear {
     }
 
     public void eat() {
-        LocalDate lastMeal = LocalDate.now();
+        lastMeal = LocalDate.now();
+
+    }
+
+    public LocalDate getLastMeal() {
+        return lastMeal;
+    }
+
+    public void setLastMeal(LocalDate lastMeal) {
+        this.lastMeal = lastMeal;
     }
 }
