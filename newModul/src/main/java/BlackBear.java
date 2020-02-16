@@ -15,4 +15,9 @@ public class BlackBear extends Bear {
     public int getWeight() {
         return weigth;
     }
+
+    @Override
+    public String getName() {
+        return "Blackbear";
+    }
 }

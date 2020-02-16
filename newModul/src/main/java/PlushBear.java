@@ -15,4 +15,19 @@ public class PlushBear extends Bear {
     public void eat(int weigth) {
 
     }
+
+    @Override
+    public String getName() {
+        return "Plushbear";
+    }
+
+    @Override
+    public String whatIDo() {
+        return null;
+    }
+
+    @Override
+    public String attack(Bear bear) {
+        return "I cant attack.";
+    }
 }

@@ -12,7 +12,17 @@ public class PolarBear extends Bear {
     }
 
     @Override
-    public int getWeight(){
+    public int getWeight() {
         return weigth;
+    }
+
+    @Override
+    public String getName() {
+        return "Polarbear";
+    }
+
+    @Override
+    public String whatIDo() {
+        return "I am killing";
     }
 }

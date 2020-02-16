@@ -16,4 +16,8 @@ public class BrownBear extends Bear {
         return weigth;
     }
 
+    @Override
+    public String getName() {
+        return "Brownbear";
+    }
 }

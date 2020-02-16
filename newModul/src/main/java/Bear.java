@@ -3,7 +3,7 @@ import java.time.LocalDate;
 public abstract class Bear {
     protected int weigth;
     private LocalDate lastMeal;
-    private int weight;
+    protected String name;
 
     public Bear() {
 
@@ -13,12 +13,16 @@ public abstract class Bear {
         this.lastMeal = lastMeal;
     }
 
-    public Bear(int weight) {
-        this.weight = weight;
-    }
+//    public Bear(int weight) {
+//        this.weight = weight;
+//    }
+//
+//    public Bear(String name){
+//        this.name=name;
+//    }
 
     public void setWeight(int weight) {
-        this.weight = weight;
+        this.weigth = weight;
     }
 
     public LocalDate getLastMeal() {
@@ -30,7 +34,7 @@ public abstract class Bear {
     }
 
     public int getWeight() {
-        return weight;
+        return weigth;
     }
 
     public void eat() {
@@ -40,4 +44,23 @@ public abstract class Bear {
     public void eat(int mealWeigth) {
         weigth += mealWeigth;
     }
+
+    public String diplay() {
+        return "I am the " + getName() + " with weigth " + weigth + ". My last meal was " + lastMeal;
+    }
+
+    public abstract String getName();
+
+    public String attack() {
+        return "I am the " + getName() + ". " + whatIDo();
+    }
+
+    public String attack(Bear bear) {
+        return "I am the " + getName() + ". " + whatIDo() + " " + bear.getName() + ".";
+    }
+
+    public String whatIDo() {
+        return "I am attacking";
+    }
+
 }
