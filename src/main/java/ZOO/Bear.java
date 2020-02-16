@@ -40,6 +40,12 @@ public abstract class Bear {
 
     public String attack() {
         return "You are wounded by Bear";
-
     }
+
+    public String display(){
+        return "jestem niedziwedziem" + getName()+"m";
+    }
+
+    protected abstract String getName();
+
 }

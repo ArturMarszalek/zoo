@@ -1,6 +1,7 @@
 package ZOO;
 
 import ZOO.Species.BlackBear;
+import ZOO.Species.BronzeBear;
 import ZOO.Species.PolarBear;
 import ZOO.Species.TeddyBear;
 import org.junit.jupiter.api.Test;
@@ -139,8 +140,9 @@ class BearTest {
         //when
         blackBear.attack();
         //then
-        assertEquals(blackBear.attack(),"You are wounded by Bear");
+        assertEquals(blackBear.attack(), "You are wounded by Bear");
     }
+
     @Test
     void PolarBearShouldKillYou() {
         //given
@@ -148,6 +150,21 @@ class BearTest {
         //when
         polarBear.attack();
         //then
-        assertEquals(polarBear.attack(),"You are killed by Bear");
+        assertEquals(polarBear.attack(), "You are killed by Bear");
+    }
+
+    @Test
+    void shouldPrintKindOfBear() {
+        //given
+        Bear teddyBear = new TeddyBear();
+        Bear blackBear = new BlackBear();
+        Bear polarBear = new PolarBear();
+        Bear bronzeBear = new BronzeBear();
+        //when
+        //then
+        assertEquals(teddyBear.display(), "jestem niedziwedziem pluszowym");
+        assertEquals(blackBear.display(), "jestem niedziwedziem czarnym");
+        assertEquals(polarBear.display(), "jestem niedziwedziem polarnym");
+        assertEquals(bronzeBear.display(), "jestem niedziwedziem brazowym");
     }
 }

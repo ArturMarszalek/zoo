@@ -20,4 +20,9 @@ public class TeddyBear extends Bear {
     @Override
     public void eat() {
     }
+
+    @Override
+    protected String getName() {
+        return " pluszowy";
+    }
 }

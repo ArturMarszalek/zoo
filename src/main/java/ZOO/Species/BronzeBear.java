@@ -11,4 +11,10 @@ public class BronzeBear extends Bear {
 
     public BronzeBear() {
     }
+
+    @Override
+    protected String getName() {
+        return " brazowy";
+    }
+
 }

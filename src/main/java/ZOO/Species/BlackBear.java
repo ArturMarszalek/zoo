@@ -16,7 +16,13 @@ public class BlackBear extends Bear {
         super();
     }
 
+    @Override
+    protected String getName() {
+        return " czarny";
+    }
+
     public BlackBear(int weight) {
         super(weight);
     }
+
 }

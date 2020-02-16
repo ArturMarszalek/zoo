@@ -15,6 +15,11 @@ public class PolarBear extends Bear {
     @Override
     public String attack() {
         return "You are killed by Bear";
-
     }
+
+    @Override
+    protected String getName() {
+        return " polarny";
+    }
+
 }
