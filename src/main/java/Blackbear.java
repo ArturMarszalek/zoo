@@ -5,7 +5,6 @@ public class Blackbear extends Bear {
 
     public Blackbear() {
         super();
-        name = "Black Bear";
         weight = 50;
     }
 
@@ -15,5 +14,10 @@ public class Blackbear extends Bear {
 
     public Blackbear(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
+    }
+
+    @Override
+    public String getName() {
+        return "Black Bear";
     }
 }

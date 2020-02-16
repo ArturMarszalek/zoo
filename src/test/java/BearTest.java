@@ -89,14 +89,10 @@ public class BearTest {
         Bear brownBear = new BrownBear();
         Bear polarBear = new PolarBear();
         //when
-        blackBear.showYourself();
-        brownBear.showYourself();
-        polarBear.showYourself();
-
         //then
-        Assertions.assertEquals(blackBear.getName(), "Black Bear");
-        Assertions.assertEquals(brownBear.getName(), "Brown Bear");
-        Assertions.assertEquals(polarBear.getName(), "Polar Bear");
+        Assertions.assertEquals(blackBear.display(), "Jestem " + blackBear.getName());
+        Assertions.assertEquals(brownBear.display(), "Jestem " + brownBear.getName());
+        Assertions.assertEquals(polarBear.display(), "Jestem " + polarBear.getName());
 
     }
 }

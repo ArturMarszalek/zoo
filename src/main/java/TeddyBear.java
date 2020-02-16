@@ -8,6 +8,11 @@ public class TeddyBear extends Bear {
     }
 
     @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
     public boolean isAlive() {
         return false;
     }
