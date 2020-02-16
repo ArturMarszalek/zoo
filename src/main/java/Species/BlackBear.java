@@ -5,7 +5,6 @@ package Species;
 import java.time.LocalDate;
 
 public class BlackBear extends Bear {
-    protected LocalDate lastMeal;
 
     public BlackBear(LocalDate lastMeal) {
         super(lastMeal);
@@ -13,5 +12,9 @@ public class BlackBear extends Bear {
 
     public BlackBear() {
         super();
+    }
+
+    public BlackBear(int weight) {
+        super(weight);
     }
 }
