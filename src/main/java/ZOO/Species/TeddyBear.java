@@ -23,12 +23,12 @@ public class TeddyBear extends Bear {
 
     @Override
     public String getName() {
-        return " pluszowy";
+        return "Teddy Bear";
     }
 
     @Override
     public String attack(Bear target) {
-        return "You"+target.getName()+" are hugged by"+getName();
+        return "You "+target.getName()+" are hugged by "+getName();
     }
 
 }

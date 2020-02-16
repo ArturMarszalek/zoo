@@ -134,26 +134,6 @@ class BearTest {
     }
 
     @Test
-    void BlackBearShouldWoundYou() {
-        //given
-        Bear blackBear = new BlackBear();
-        //when
-        blackBear.attack();
-        //then
-        assertEquals(blackBear.attack(), "You are wounded by Bear");
-    }
-
-    @Test
-    void PolarBearShouldKillYou() {
-        //given
-        Bear polarBear = new PolarBear();
-        //when
-        polarBear.attack();
-        //then
-        assertEquals(polarBear.attack(), "You are killed by Bear");
-    }
-
-    @Test
     void shouldPrintKindOfBear() {
         //given
         Bear teddyBear = new TeddyBear();
@@ -162,10 +142,10 @@ class BearTest {
         Bear bronzeBear = new BronzeBear();
         //when
         //then
-        assertEquals(teddyBear.display(), "jestem niedziwedziem pluszowym");
-        assertEquals(blackBear.display(), "jestem niedziwedziem czarnym");
-        assertEquals(polarBear.display(), "jestem niedziwedziem polarnym");
-        assertEquals(bronzeBear.display(), "jestem niedziwedziem brazowym");
+        assertEquals(teddyBear.display(), "I am Teddy Bear");
+        assertEquals(blackBear.display(), "I am Black Bear");
+        assertEquals(polarBear.display(), "I am Polar Bear");
+        assertEquals(bronzeBear.display(), "I am Brown Bear");
     }
     @Test
     void PolarBearShouldKillBear() {
@@ -175,7 +155,7 @@ class BearTest {
         //when
         polarBear.attack(teddyBear);
         //then
-        assertEquals(polarBear.attack(teddyBear), "You pluszowy are killed by polarny");
+        assertEquals(polarBear.attack(teddyBear), "You Teddy Bear are killed by Polar Bear");
     }
     @Test
     void BlackBearShouldKillBear() {
@@ -185,7 +165,7 @@ class BearTest {
         //when
         blackBear.attack(teddyBear);
         //then
-        assertEquals(blackBear.attack(teddyBear), "You pluszowy are wounded by czarny");
+        assertEquals(blackBear.attack(teddyBear), "You Teddy Bear are wounded by Black Bear");
     }
     @Test
     void TeddyBearShouldHugBear() {
@@ -195,7 +175,7 @@ class BearTest {
         //when
         teddyBear.attack(blackBear);
         //then
-        assertEquals(teddyBear.attack(blackBear), "You czarny are hugged by pluszowy");
+        assertEquals(teddyBear.attack(blackBear), "You Black Bear are hugged by Teddy Bear");
     }
 
 }

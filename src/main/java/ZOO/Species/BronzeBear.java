@@ -14,7 +14,7 @@ public class BronzeBear extends Bear {
 
     @Override
     public String getName() {
-        return " brazowy";
+        return "Brown Bear";
     }
 
 }
