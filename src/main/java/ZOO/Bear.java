@@ -23,13 +23,14 @@ public abstract class Bear {
     }
 
     public boolean isAlive() {
-        return lastMeal.isAfter((LocalDate.now().minusDays(10))) && weight>0;
+        return lastMeal.isAfter((LocalDate.now().minusDays(10))) && weight > 0;
     }
 
     public void eat(int foodWeight) {
         lastMeal = LocalDate.now();
         weight = weight + foodWeight;
     }
+
     public void eat() {
         lastMeal = LocalDate.now();
     }
@@ -39,11 +40,15 @@ public abstract class Bear {
     }
 
     public String attack(Bear target) {
-        target.weight-=weight*0.5;
-        return "You "+target.getName()+" are wounded by "+getName();
+        target.youAreAttacked(weight * 0.5);
+        return "You " + target.getName() + " are wounded by " + getName();
     }
 
-    public String display(){
+    public void youAreAttacked(double target) {
+        weight -= target;
+    }
+
+    public String display() {
         return "I am " + getName();
     }
 

@@ -12,16 +12,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BearTest {
 
-    @Test
+/*    @Test
     void ShouldBearEatWithinPast10Days() {
         //given
         LocalDate lastMeal = LocalDate.now();
         Bear littleBlackBear = new BlackBear(lastMeal);
+
         //when
         boolean isAlive = littleBlackBear.isAlive();
         //then
         assertTrue(isAlive);
-    }
+    }*/
 
     @Test
     void ShouldNotBearEatWithinPast10Days() {
@@ -49,7 +50,7 @@ class BearTest {
         //given
         Bear littleBlackBear = new BlackBear();
         //when
-        littleBlackBear.eat();
+        littleBlackBear.eat(5);
         //then
         assertTrue(littleBlackBear.isAlive());
     }
@@ -210,5 +211,30 @@ class BearTest {
         assertEquals(50, brownBear.weight);
         assertTrue(brownBear.isAlive());
     }
+
+    @Test
+    void shouldBearDie() {
+        //given
+        Bear polarBear = new PolarBear(100);
+        Bear brownBear = new BronzeBear(200);
+        brownBear.eat();
+        //when
+        polarBear.attack(brownBear);
+        //then
+        assertFalse(brownBear.isAlive());
+    }
+    @Test
+    void shouldBearDoNothing() {
+        //given
+        Bear teddyBear = new TeddyBear(100);
+        Bear brownBear = new BronzeBear(200);
+        brownBear.eat();
+        //when
+        teddyBear.attack(brownBear);
+        //then
+        assertTrue(brownBear.isAlive());
+        assertEquals(200,brownBear.weight);
+    }
+
 
 }

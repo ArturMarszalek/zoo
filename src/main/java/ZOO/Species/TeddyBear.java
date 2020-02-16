@@ -32,6 +32,7 @@ public class TeddyBear extends Bear {
 
     @Override
     public String attack(Bear target) {
+        target.youAreAttacked(0);
         return "You "+target.getName()+" are hugged by "+getName();
     }
 

@@ -18,6 +18,7 @@ public class PolarBear extends Bear {
 
     @Override
     public String attack(Bear target) {
+        target.youAreAttacked(target.getWeight());
         return "You "+target.getName()+" are killed by "+getName();
     }
 
