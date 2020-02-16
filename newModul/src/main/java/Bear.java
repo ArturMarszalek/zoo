@@ -43,7 +43,7 @@ public abstract class Bear {
 
     public abstract String getName();
 
-    public String attack() {
+    public String displayAttack() {
         return "I am the " + getName() + ". " + whatIDo();
     }
 

@@ -23,7 +23,7 @@ public class PlushBear extends Bear {
 
     @Override
     public String whatIDo() {
-        return null;
+        return "I cant attack";
     }
 
     @Override

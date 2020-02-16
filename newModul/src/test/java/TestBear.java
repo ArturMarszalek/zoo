@@ -90,13 +90,13 @@ class TestBear {
     @Test
     void shouldBearAttackt() {
         PolarBear polarBear = new PolarBear(LocalDate.now());
-        assertEquals("I am the Polarbear. I am killing", polarBear.attack());
+        assertEquals("I am the Polarbear. I am killing", polarBear.displayAttack());
         BrownBear brownBear = new BrownBear(LocalDate.now());
-        assertEquals("I am the Brownbear. I am attacking", brownBear.attack());
+        assertEquals("I am the Brownbear. I am attacking", brownBear.displayAttack());
         BlackBear blackBear = new BlackBear(LocalDate.now());
-        assertEquals("I am the Blackbear. I am attacking", blackBear.attack());
+        assertEquals("I am the Blackbear. I am attacking", blackBear.displayAttack());
         PlushBear plushBear = new PlushBear();
-        assertEquals("I am the Plushbear. null", plushBear.attack());
+        assertEquals("I am the Plushbear. I cant attack", plushBear.displayAttack());
     }
 
     @Test
