@@ -7,6 +7,16 @@ public class BrownBear extends Bear {
     }
 
     @Override
+    public int getWeight() {
+        return 150;
+    }
+
+    @Override
+    public void setWeight(int weight) {
+        super.setWeight(weight);
+    }
+
+    @Override
     public void setLastMeal(int lastMeal) {
         super.setLastMeal(lastMeal);
     }
@@ -22,17 +32,12 @@ public class BrownBear extends Bear {
     }
 
     @Override
-    public int getWeight() {
-        return super.getWeight();
+    public String display() {
+        return super.display();
     }
 
     @Override
-    public void setWeight(int weight) {
-        super.setWeight(weight);
-    }
-
-    @Override
-    public int checkBearWeight() {
-        return super.checkBearWeight();
+    public void attack(String BearOne, String BearTwo) {
+        super.attack(BearOne, BearTwo);
     }
 }

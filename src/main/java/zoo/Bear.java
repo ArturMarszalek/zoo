@@ -56,4 +56,9 @@ public abstract class Bear {
         System.out.println("Mój gatunek to: " + getName());
         return getName();
     }
+
+    public void attack(String BearOne, String BearTwo){
+        System.out.println(BearOne + " has attacked " + BearTwo);
+    }
+
 }
