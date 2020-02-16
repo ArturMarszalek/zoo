@@ -5,11 +5,21 @@ public abstract class Bear {
     protected LocalDate lastMeal;
     protected LocalDate mealTime;
 
+    String name;
+
     int weight;
     int mealWeight;
 
+    public String getName() {
+        return name;
+    }
+
     public int getWeight() {
         return weight;
+    }
+
+    public void showYourself(){
+        System.out.println(name);
     }
 
     public boolean isAlive(){

@@ -67,7 +67,7 @@ public class BearTest {
     }
 
     @Test
-    void BlackBearShouldWeight100kg() {
+    void shouldBearsHadGoodWeight() {
         //given
         //when
         Bear blackBear = new Blackbear();
@@ -80,5 +80,23 @@ public class BearTest {
         Assertions.assertEquals(50, blackBear.getWeight());
         Assertions.assertEquals(100, brownBear.getWeight());
         Assertions.assertEquals(200, polarBear.getWeight());
+    }
+
+    @Test
+    void shouldBearsDisplayName() {
+        //given
+        Bear blackBear = new Blackbear();
+        Bear brownBear = new BrownBear();
+        Bear polarBear = new PolarBear();
+        //when
+        blackBear.showYourself();
+        brownBear.showYourself();
+        polarBear.showYourself();
+
+        //then
+        Assertions.assertEquals(blackBear.getName(), "Black Bear");
+        Assertions.assertEquals(brownBear.getName(), "Brown Bear");
+        Assertions.assertEquals(polarBear.getName(), "Polar Bear");
+
     }
 }

@@ -5,6 +5,7 @@ public class Blackbear extends Bear {
 
     public Blackbear() {
         super();
+        name = "Black Bear";
         weight = 50;
     }
 

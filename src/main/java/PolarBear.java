@@ -5,6 +5,7 @@ public class PolarBear extends Bear {
 
     public PolarBear() {
         super();
+        name = "Polar Bear";
         weight = 200;
     }
 
