@@ -28,14 +28,15 @@ class TestBear {
     void shouldIsEat(){
         LocalDate lastMeal = LocalDate.now().minusDays(5);
         BrownBear eatBear = new BrownBear(lastMeal);
-        assertEquals(LocalDate.now(),eatBear.eat());
+        eatBear.eat();
+        assertEquals(LocalDate.now(),eatBear.getLastMeal());
     }
 
     @Test
     void shouldIsNotEat(){
         LocalDate lastMeal = LocalDate.now().minusDays(5);
         BrownBear eatBrown= new BrownBear(lastMeal);
-        assertFalse(LocalDate.now()==eatBrown.getLastMeal());
+        assertEquals(LocalDate.now().minusDays(5),eatBrown.getLastMeal());
     }
 
 }

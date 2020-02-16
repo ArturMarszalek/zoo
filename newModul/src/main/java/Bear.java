@@ -19,7 +19,7 @@ return lastMeal.isAfter(LocalDate.now().minusDays(10));
         return 0;
     }
 
-    public LocalDate eat(){
-       return lastMeal=LocalDate.now();
+    public void eat(){
+       lastMeal=LocalDate.now();
     }
 }
