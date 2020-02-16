@@ -33,8 +33,13 @@ public abstract class Bear {
     }
 
     public String display() {
-        return "jestem niedzwiedziem " + getName() ;
+        return "jestem niedzwiedziem " + getName();
     }
+    public abstract String Attack(Bear bear);
+
 
     protected abstract String getName();
-}
+
+
+    }
+

@@ -90,5 +90,21 @@ public class BlackBearTest {
         assertEquals(polarBear.display(), "jestem niedzwiedziem Polarnym");
         assertEquals(bronzeBear.display(), "jestem niedzwiedziem Brunatnym");
     }
-}
 
+    @Test
+    void shouldBearAttack() {
+        //given
+        Bear blackBear = new BlackBear();
+        Bear polarBear = new PolarBear();
+        Bear brownBear = new BrownBear();
+        //when
+        polarBear.Attack(blackBear);
+        blackBear.Attack(brownBear);
+        brownBear.Attack(polarBear);
+        //then
+        assertEquals("Ja Czarnym zatakuje Brunatnym", blackBear.Attack(brownBear));
+        assertEquals("Ja Brunatnym atakujePolarnym", brownBear.Attack(polarBear));
+        assertEquals("Ja Polarnym zabijam Czarnym", polarBear.Attack(blackBear));
+    }
+
+}

@@ -15,6 +15,11 @@ public class BrownBear extends Bear {
     }
 
     @Override
+    public String Attack(Bear bear) {
+        return "Ja " + getName() + " atakuje" + bear.getName();
+    }
+
+    @Override
     protected String getName() {
         return "Brunatnym";
     }

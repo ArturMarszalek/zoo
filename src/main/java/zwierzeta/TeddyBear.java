@@ -20,6 +20,11 @@ public class TeddyBear extends Bear {
     }
 
     @Override
+    public String Attack(Bear bear) {
+        return null;
+    }
+
+    @Override
     protected String getName() {
         return null;
     }
