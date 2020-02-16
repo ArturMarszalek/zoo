@@ -5,9 +5,19 @@ public abstract class Bear {
     protected LocalDate lastMeal;
     protected LocalDate mealTime;
 
-    public abstract boolean isAlive();
+    int weight;
+    int mealWeight;
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public boolean isAlive(){
+        return lastMeal.isAfter(LocalDate.now().minusDays(10));
+    }
 
     public void eat() {
+        weight += mealWeight;
         mealTime = LocalDate.now();
     }
 

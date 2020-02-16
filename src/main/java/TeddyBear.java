@@ -2,6 +2,7 @@ import java.time.LocalDate;
 
 public class TeddyBear extends Bear {
 
+
     public TeddyBear(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }

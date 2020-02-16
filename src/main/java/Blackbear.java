@@ -2,11 +2,17 @@ import java.time.LocalDate;
 
 public class Blackbear extends Bear {
 
-    public Blackbear(LocalDate lastMeal) {
-        this.lastMeal = lastMeal;
+
+    public Blackbear() {
+        super();
+        weight = 50;
     }
 
-    public boolean isAlive() {
-        return lastMeal.isAfter(LocalDate.now().minusDays(10));
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public Blackbear(LocalDate lastMeal) {
+        this.lastMeal = lastMeal;
     }
 }
