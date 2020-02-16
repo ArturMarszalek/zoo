@@ -79,6 +79,7 @@ class BearTest {
         //then
         assertEquals(50, blackBear.getWeight());
     }
+
     @Test
     void BronzeBearShouldWeight100kg() {
         //given
@@ -87,6 +88,7 @@ class BearTest {
         //then
         assertEquals(100, bronzeBear.getWeight());
     }
+
     @Test
     void PolarBearShouldWeight200kg() {
         //given
@@ -95,6 +97,7 @@ class BearTest {
         //then
         assertEquals(200, polarBear.getWeight());
     }
+
     @Test
     void PolarBearShouldEatAndWeight210kg() {
         //given
@@ -104,6 +107,7 @@ class BearTest {
         //then
         assertEquals(210, polarBear.getWeight());
     }
+
     @Test
     void PolarBearShouldEatAndNotWeight210kg() {
         //given
@@ -114,4 +118,34 @@ class BearTest {
         assertNotEquals(210, polarBear.getWeight());
     }
 
+    @Test
+    void BlackBearWeightChangeAfter3feedingTimes() {
+        //given
+        Bear blackBear = new BlackBear(50);
+        //when
+        blackBear.eat(20);
+        blackBear.eat(10);
+        blackBear.eat(40);
+        //then
+        assertEquals(120, blackBear.getWeight());
+    }
+
+    @Test
+    void BlackBearShouldWoundYou() {
+        //given
+        Bear blackBear = new BlackBear();
+        //when
+        blackBear.attack();
+        //then
+        assertEquals(blackBear.attack(),"You are wounded by Bear");
+    }
+    @Test
+    void PolarBearShouldKillYou() {
+        //given
+        Bear polarBear = new PolarBear();
+        //when
+        polarBear.attack();
+        //then
+        assertEquals(polarBear.attack(),"You are killed by Bear");
+    }
 }

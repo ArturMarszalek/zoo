@@ -22,10 +22,6 @@ public abstract class Bear {
         return weight;
     }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
     public boolean isAlive() {
         return lastMeal.isAfter((LocalDate.now().minusDays(10)));
     }
@@ -42,4 +38,8 @@ public abstract class Bear {
         return lastMeal;
     }
 
+    public String attack() {
+        return "You are wounded by Bear";
+
+    }
 }

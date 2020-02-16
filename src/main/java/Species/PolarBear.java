@@ -9,4 +9,10 @@ public class PolarBear extends Bear {
 
     public PolarBear() {
     }
+
+    @Override
+    public String attack() {
+        return "You are killed by Bear";
+
+    }
 }
