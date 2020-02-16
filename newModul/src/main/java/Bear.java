@@ -23,7 +23,7 @@ public abstract class Bear {
     }
 
     public boolean isAlive() {
-        return lastMeal.isAfter(LocalDate.now().minusDays(10)) && getWeight()>0;
+        return lastMeal.isAfter(LocalDate.now().minusDays(10)) && getWeight() > 0;
     }
 
     public double getWeight() {
@@ -49,12 +49,12 @@ public abstract class Bear {
     }
 
     public String attack(Bear bear) {
-      bear.setWeight(bear.getWeight()- attackPower());
+        bear.setWeight(bear.getWeight() - attackPower());
         return "I am the " + getName() + ". " + whatIDo() + " " + bear.getName() + ".";
     }
 
-    public double attackPower(){
-        return 0.5*getWeight();
+    public double attackPower() {
+        return 0.5 * getWeight();
     }
 
     public String whatIDo() {

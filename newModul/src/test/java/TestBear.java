@@ -109,11 +109,15 @@ class TestBear {
     }
 
     @Test
-    void shouldBearAttackOtherBearIsTakingDmg(){
-        PolarBear polarBear=new PolarBear(LocalDate.now());
-        BrownBear brownBear=new BrownBear(LocalDate.now());
+    void shouldBearAttackOtherBearIsTakingDmg() {
+        PolarBear polarBear = new PolarBear(LocalDate.now());
+        BrownBear brownBear = new BrownBear(LocalDate.now());
+        BlackBear blackBear = new BlackBear(LocalDate.now());
         polarBear.attack(brownBear);
         boolean isTest = brownBear.isAlive();
         assertFalse(isTest);
+        brownBear.attack(blackBear);
+        boolean isTest2 = blackBear.isAlive();
+        assertTrue(isTest2);
     }
 }

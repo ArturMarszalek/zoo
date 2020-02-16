@@ -27,7 +27,7 @@ public class PolarBear extends Bear {
     }
 
     @Override
-    public double attackPower(){
-        return 1000000000*getWeight();
+    public double attackPower() {
+        return 1000000000 * getWeight();
     }
 }
