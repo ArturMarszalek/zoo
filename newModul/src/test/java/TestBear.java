@@ -46,4 +46,28 @@ class TestBear {
         assertEquals(null, plushBear.getLastMeal());
     }
 
+    @Test
+    void shouldGetWeightWorkingGood(){
+        LocalDate lastMeal = LocalDate.now();
+        BrownBear brownBear = new BrownBear(lastMeal);
+        assertEquals(100,brownBear.getWeight());
+        BlackBear blackBear = new BlackBear(lastMeal);
+        assertEquals(200,blackBear.getWeight());
+        PolarBear polarBear=new PolarBear(lastMeal);
+        assertEquals(50,polarBear.getWeight());
+        polarBear.eat(5);
+        assertEquals(55,polarBear.getWeight());
+    }
+    @Test
+    void shouldGetWeigthAfterEat(){
+        PolarBear polarBear=new PolarBear();
+        polarBear.eat(5);
+        assertEquals(55,polarBear.getWeight());
+        BrownBear brownBear=new BrownBear();
+        brownBear.eat(20);
+        assertEquals(120,brownBear.getWeight());
+        BlackBear blackBear= new BlackBear();
+        blackBear.eat(50);
+        assertEquals(250, blackBear.getWeight());
+    }
 }
