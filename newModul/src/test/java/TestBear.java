@@ -39,4 +39,11 @@ class TestBear {
         assertEquals(LocalDate.now().minusDays(5),eatBrown.getLastMeal());
     }
 
+    @Test
+    void shouldIsPlushBearEat(){
+        PlushBear plushBear=new PlushBear();
+        plushBear.eat();
+        assertEquals(null, plushBear.getLastMeal());
+    }
+
 }

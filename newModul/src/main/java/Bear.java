@@ -7,6 +7,8 @@ public abstract class Bear {
         this.lastMeal= lastMeal;
     }
 
+
+
     public LocalDate getLastMeal() {
         return lastMeal;
     }
