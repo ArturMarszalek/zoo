@@ -26,9 +26,10 @@ public abstract class Bear extends Animal {
 
     public boolean isAlive(){
         ZonedDateTime actualTime = ZonedDateTime.now();
-        if (actualTime.minus(Period.ofDays(10)).isAfter(lastMeal)){
+        if (actualTime.minus(Period.ofDays(10)).isAfter(lastMeal) || weight<=0){
             return false;
         }
+
         return true;
     }
 
@@ -54,6 +55,6 @@ public abstract class Bear extends Animal {
 
     public abstract String getName();
 
-    public abstract String attack(Bear target);
+    public abstract void attack(Bear target);
 
 }

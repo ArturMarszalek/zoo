@@ -6,17 +6,19 @@ public class BlackBear extends Bear{
         setWeight(50);
     }
 
+
+
+
     @Override
     public String getName() {
         return "czarny niedźwiedż";
     }
 
     @Override
-    public String attack(Bear target) {
-        String wynik = null;
-        if (target instanceof BrownBear){wynik="uciekam od "+target.getName();}
-        if (target instanceof PolarBear){wynik="zabijam "+target.getName();}
-        if (target instanceof TeddyBear){wynik="oszczędzam "+target.getName();}
-        return "Jestem "+getName()+" i "+wynik;
+    public void attack(Bear target) {
+
+        target.setWeight((int) (target.getWeight()-weight*0.5));
+
     }
+
 }

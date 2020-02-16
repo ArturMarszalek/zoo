@@ -11,11 +11,7 @@ public class PolarBear extends Bear{
     }
 
     @Override
-    public String attack(Bear target) {
-        String wynik = null;
-        if (target instanceof BrownBear){wynik="uciekam od "+target.getName();}
-        if (target instanceof BlackBear){wynik="zabijam "+target.getName();}
-        if (target instanceof TeddyBear){wynik="oszczędzam "+target.getName();}
-        return "Jestem "+getName()+" i "+wynik;
+    public void attack(Bear target) {
+        target.setWeight((int) (target.getWeight()-weight*0.5));
     }
 }
