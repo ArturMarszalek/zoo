@@ -19,7 +19,7 @@ public class PolarBear extends Bear {
     }
 
     @Override
-    public String attack() {
-        return "Nie masz szczescia, zostales zabity przez polarnego niedzwiedzia!";
+    public String attack(Bear target) {
+        return "Atakuje " + target.getName();
     }
 }

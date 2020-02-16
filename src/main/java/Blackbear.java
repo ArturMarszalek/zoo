@@ -22,7 +22,7 @@ public class Blackbear extends Bear {
     }
 
     @Override
-    public String attack() {
-        return "Zostales zaatakowany przez czarnego niedziweidza, ale jeszcze żyjesz!";
+    public String attack(Bear target) {
+        return "Atakuje " + target.getName();
     }
 }

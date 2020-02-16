@@ -10,7 +10,7 @@ public abstract class Bear {
 
     public abstract String getName();
 
-    public abstract String attack();
+    public abstract String attack(Bear target);
 
     public int getWeight() {
         return weight;

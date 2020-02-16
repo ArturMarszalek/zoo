@@ -13,7 +13,7 @@ public class TeddyBear extends Bear {
     }
 
     @Override
-    public String attack() {
+    public String attack(Bear target) {
         return null;
     }
 

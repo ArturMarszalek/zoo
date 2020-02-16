@@ -19,7 +19,7 @@ public class BrownBear extends Bear {
     }
 
     @Override
-    public String attack() {
-        return "Zostales zaatakowany przez brązowego niedziweidza, ale jeszcze żyjesz!";
+    public String attack(Bear target) {
+        return "Atakuje " + target.getName();
     }
 }
