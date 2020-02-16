@@ -4,7 +4,7 @@ import animals.Animal;
 import java.time.Period;
 import java.time.ZonedDateTime;
 
-public class Bear extends Animal {
+public abstract class Bear extends Animal {
 
     ZonedDateTime lastMeal;
     int weight;
@@ -48,7 +48,12 @@ public class Bear extends Animal {
         this.weight = weight;
     }
 
-    public void display(){
-        System.out.println("To są wszystkie misie");
+    public String display(){
+        return "Jestem "+getName();
     }
+
+    public abstract String getName();
+
+    public abstract String attack(Bear target);
+
 }

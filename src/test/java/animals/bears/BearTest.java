@@ -14,7 +14,7 @@ class BearTest {
     @Test
     void shouldGetEating(){
         //given
-        Bear bear = new Bear();
+        Bear bear = new BlackBear();
         ZonedDateTime actualTime = ZonedDateTime.now();
         bear.getEating();
         //when
@@ -26,7 +26,7 @@ class BearTest {
     @Test
     void shouldIsAlife(){
         //given
-        Bear bear = new Bear();
+        Bear bear = new BrownBear();
         bear.setLastMeal(ZonedDateTime.now().minus(Period.ofDays(11)));
         //when
         Boolean result = bear.isAlive();
@@ -37,7 +37,7 @@ class BearTest {
     @Test
     void shouldIsAlife2(){
         //given
-        Bear bear = new Bear();
+        Bear bear = new PolarBear();
         bear.setLastMeal(ZonedDateTime.now().minus(Period.ofDays(9)));
         //when
         Boolean result = bear.isAlive();
@@ -128,5 +128,57 @@ class BearTest {
         int result = polarbear.getWeight()+ brownbear.getWeight()+blackbear.getWeight();
         //then
         assertThat(result).isEqualTo(370);
+    }
+
+    @Test
+    void shouldDisplayPolarBear(){
+        //given
+        Bear polarbear = new PolarBear();
+        //when
+        String result = polarbear.display();
+        //then
+        assertThat(result).isEqualTo("Jestem polarny niedźwiedż");
+    }
+
+    @Test
+    void shouldDisplayBlackBear(){
+        //given
+        Bear blackBear = new BlackBear();
+        //when
+        String result = blackBear.display();
+        //then
+        assertThat(result).isEqualTo("Jestem czarny niedźwiedż");
+    }
+
+    @Test
+    void shouldDisplayTeddyBear(){
+        //given
+        Bear teddybear = new TeddyBear();
+        //when
+        String result = teddybear.display();
+        //then
+        assertThat(result).isEqualTo("Jestem pluszak");
+    }
+
+    @Test
+    void shouldDisplayattackTeddyBear(){
+        //given
+        Bear blackBear = new BlackBear();
+        Bear teddyBer = new TeddyBear();
+        //when
+        String result = blackBear.attack(teddyBer);
+        //then
+        assertThat(result).isEqualTo("Jestem czarny niedźwiedż i oszczędzam pluszak");
+    }
+
+    @Test
+    void shouldDisplayattackBlackBear(){
+        //given
+        Bear blackBear = new BlackBear();
+        Bear polarBear = new PolarBear();
+        //when
+        String result = polarBear.attack(blackBear);
+        //then
+        assertThat(result).isEqualTo("Jestem polarny niedźwiedż i zabijam czarny niedźwiedż");
     }
 }

@@ -26,4 +26,14 @@ public class TeddyBear extends Bear{
     public void setLastMeal(ZonedDateTime lastMeal) {
 
     }
+
+    @Override
+    public String getName() {
+        return "pluszak";
+    }
+
+    @Override
+    public String attack(Bear target) {
+        return "Jestem bezbronnym nie agresywnym pluszakiem";
+}
 }

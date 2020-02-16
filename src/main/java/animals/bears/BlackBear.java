@@ -7,7 +7,16 @@ public class BlackBear extends Bear{
     }
 
     @Override
-    public void display() {
-        System.out.println("To jest Czarny miś");
+    public String getName() {
+        return "czarny niedźwiedż";
+    }
+
+    @Override
+    public String attack(Bear target) {
+        String wynik = null;
+        if (target instanceof BrownBear){wynik="uciekam od "+target.getName();}
+        if (target instanceof PolarBear){wynik="zabijam "+target.getName();}
+        if (target instanceof TeddyBear){wynik="oszczędzam "+target.getName();}
+        return "Jestem "+getName()+" i "+wynik;
     }
 }
