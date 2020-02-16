@@ -1,11 +1,8 @@
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 
 class TestBear {
     @Test
@@ -78,13 +75,13 @@ class TestBear {
     @Test
     void shouldDisplayBears() {
         PolarBear polarBear = new PolarBear(LocalDate.now());
-        assertEquals("I am the Polarbear with weigth 50. My last meal was 2020-02-16", polarBear.diplay());
+        assertEquals("I am the Polarbear with weigth 50.0. My last meal was 2020-02-16", polarBear.diplay());
         BrownBear brownBear = new BrownBear(LocalDate.now());
-        assertEquals("I am the Brownbear with weigth 100. My last meal was 2020-02-16", brownBear.diplay());
+        assertEquals("I am the Brownbear with weigth 100.0. My last meal was 2020-02-16", brownBear.diplay());
         BlackBear blackBear = new BlackBear(LocalDate.now());
-        assertEquals("I am the Blackbear with weigth 200. My last meal was 2020-02-16", blackBear.diplay());
+        assertEquals("I am the Blackbear with weigth 200.0. My last meal was 2020-02-16", blackBear.diplay());
         PlushBear plushBear = new PlushBear();
-        assertEquals("I am the Plushbear with weigth 10. My last meal was null", plushBear.diplay());
+        assertEquals("I am the Plushbear with weigth 10.0. My last meal was null", plushBear.diplay());
     }
 
     @Test
@@ -109,5 +106,14 @@ class TestBear {
         assertEquals("I am the Brownbear. I am attacking Polarbear.", brownBear.attack(polarBear));
         assertEquals("I am the Polarbear. I am killing Brownbear.", polarBear.attack(brownBear));
         assertEquals("I cant attack.", plushBear.attack(brownBear));
+    }
+
+    @Test
+    void shouldBearAttackOtherBearIsTakingDmg(){
+        PolarBear polarBear=new PolarBear(LocalDate.now());
+        BrownBear brownBear=new BrownBear(LocalDate.now());
+        polarBear.attack(brownBear);
+        boolean isTest = brownBear.isAlive();
+        assertFalse(isTest);
     }
 }

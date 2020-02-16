@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 
 public abstract class Bear {
-    protected int weigth;
+    private Bear bear;
+    protected double weigth;
     private LocalDate lastMeal;
     protected String name;
 
@@ -13,7 +14,7 @@ public abstract class Bear {
         this.lastMeal = lastMeal;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weigth = weight;
     }
 
@@ -22,10 +23,10 @@ public abstract class Bear {
     }
 
     public boolean isAlive() {
-        return lastMeal.isAfter(LocalDate.now().minusDays(10));
+        return lastMeal.isAfter(LocalDate.now().minusDays(10)) && getWeight()>0;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weigth;
     }
 
@@ -48,7 +49,12 @@ public abstract class Bear {
     }
 
     public String attack(Bear bear) {
+      bear.setWeight(bear.getWeight()- attackPower());
         return "I am the " + getName() + ". " + whatIDo() + " " + bear.getName() + ".";
+    }
+
+    public double attackPower(){
+        return 0.5*getWeight();
     }
 
     public String whatIDo() {

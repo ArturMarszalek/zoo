@@ -12,7 +12,7 @@ public class BlackBear extends Bear {
     }
 
     @Override
-    public int getWeight() {
+    public double getWeight() {
         return weigth;
     }
 
