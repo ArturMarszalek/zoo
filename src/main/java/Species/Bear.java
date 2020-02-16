@@ -26,7 +26,4 @@ public abstract class Bear {
         return lastMeal;
     }
 
-    public void setLastMeal(LocalDate lastMeal) {
-        this.lastMeal = lastMeal;
-    }
 }

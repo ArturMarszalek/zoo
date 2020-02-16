@@ -40,6 +40,7 @@ class BearTest {
         //then
         assertTrue(LocalDate.now().isEqual(littleBlackBear.getLastMeal()));
     }
+
     @Test
     void ShouldBearEatNowAndBeAlive() {
         //given
@@ -50,4 +51,23 @@ class BearTest {
         assertTrue(littleBlackBear.isAlive());
     }
 
+    @Test
+    void ShouldNotTeddyBearEat() {
+        //given
+        Bear teddyBear = new TeddyBear();
+        //when
+        teddyBear.eat();
+        //then
+        assertNull(teddyBear.getLastMeal());
+    }
+
+    @Test
+    void TeddyBearShouldNotBeAlive() {
+        //given
+        Bear teddyBear = new TeddyBear();
+        //when
+
+        //then
+        assertFalse(teddyBear.isAlive());
+    }
 }
