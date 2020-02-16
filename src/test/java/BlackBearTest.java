@@ -1,12 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import zwierzeta.Bear;
-import zwierzeta.BlackBear;
+import zwierzeta.*;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BlackBearTest {
     @Test
@@ -43,4 +41,42 @@ public class BlackBearTest {
 
     }
 
+    @Test
+    void shouldTeddyBearEat() {
+        //given
+        LocalDate now = LocalDate.now();
+        Bear teddyBear = new TeddyBear();
+        //when
+        teddyBear.eat();
+        //then
+        Assertions.assertNull(teddyBear.getMealTime());
+    }
+
+    @Test
+    void shouldAllBearHaveDefaultWeight() {
+        //given
+        //given
+        Bear blackBear = new BlackBear();
+        Bear polarBear = new PolarBear();
+        //then
+        assertEquals(200, polarBear.getWeight());
+        assertEquals(50, blackBear.getWeight());
+    }
+
+    @Test
+    void shouldDoNOtEatNothing() {
+        Bear blackBear = new BlackBear();
+        Bear brownBear = new BrownBear();
+        Bear polarBear = new PolarBear();
+        blackBear.eat();
+        brownBear.eat();
+        polarBear.eat();
+        //then
+        Assertions.assertEquals(50, blackBear.getWeight());
+        Assertions.assertEquals(100, brownBear.getWeight());
+        Assertions.assertEquals(200, polarBear.getWeight());
+    }
+
+
 }
+

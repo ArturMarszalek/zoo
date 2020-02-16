@@ -3,13 +3,17 @@ package zwierzeta;
 import java.time.LocalDate;
 
 public class BlackBear extends Bear {
-    private LocalDate lastMeal;
 
-
-    public BlackBear(LocalDate lastMeal){
-        this.lastMeal = lastMeal;
+    public BlackBear() {
+        super();
+        weight = 50;
     }
-    public boolean isAlive(){
-        return lastMeal.isAfter(LocalDate.now().minusDays(10));
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public BlackBear(LocalDate lastMeal) {
+        this.lastMeal = lastMeal;
     }
 }
