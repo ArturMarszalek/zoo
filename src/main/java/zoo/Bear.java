@@ -4,17 +4,21 @@ import java.time.LocalDate;
 
 public abstract class Bear {
 
-    private boolean lastMeal = false;
+    int lastMeal;
+    int ifAlive = LocalDate.now().minusDays(10).getDayOfYear();
 
-    boolean isItStillAlive() {
-        return lastMeal;
+    public void setLastMeal(int lastMeal) {
+        this.lastMeal = lastMeal;
     }
 
     public boolean feedBear(String foodtype) {
-        LocalDate feedTime = LocalDate.now();
-        lastMeal = true;
+        int feedTime = LocalDate.now().getDayOfYear();
+        lastMeal = feedTime;
         System.out.println("Jem " + foodtype + " nie przeszkadzaj!");
         return true;
     }
 
+    boolean isItStillAlive() {
+        return lastMeal >= ifAlive;
+    }
 }
