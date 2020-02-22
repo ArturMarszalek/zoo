@@ -28,10 +28,6 @@ public class TeddyBear extends Bear {
     }
 
     @Override
-    public void eat(){
-    }
-
-    @Override
     public double attack2(Bear target) {
         return 0;
     }

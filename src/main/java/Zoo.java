@@ -2,13 +2,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Zoo {
 
     ArrayList<Bear> animals = new ArrayList<>();
 
-    public Zoo(){
+    public Zoo() {
         initializeAnimalsInZooFromStaticFile();
     }
 
@@ -31,7 +33,9 @@ public class Zoo {
             System.out.println(e);
         }
     }
+
     private Bear createAnimalByType(String animalType) throws Exception {
+
         switch (animalType) {
             case "BlackBear":
                 return new Blackbear();
@@ -41,7 +45,8 @@ public class Zoo {
                 return new BrownBear();
             case "TeddyBear":
                 return new TeddyBear();
-            default: throw new Exception("can't create animal by type");
+            default:
+                throw new Exception("can't create animal by type");
         }
     }
 
@@ -59,5 +64,18 @@ public class Zoo {
             }
         }
         return animalMap;
+    }
+
+    public void feedAll() {
+        for (Bear feedAnimals : animals) {
+                feedAnimals.eat();
+        }
+    }
+
+    public void feedBlackBear(){
+        List<Bear> black_bear = animals.stream().filter(animals -> animals.getName().equals("Black Bear")).collect(Collectors.toList());
+        for (Bear feedBlack : animals) {
+            feedBlack.eat();
+        }
     }
 }
