@@ -15,6 +15,7 @@ public class Zoo {
     public Zoo() {
 
         try {
+          //  String resourceFile = getClass().getClassLoader().getResource("Animals.txt").getFile();
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Animals.txt"));
             String line;
             while ((line = br.readLine()) != null) {
@@ -22,37 +23,27 @@ public class Zoo {
                 String animalType = animalQuantity[0];
                 int animalCount = Integer.parseInt(animalQuantity[1]);
 
-                if (animalType.equals("pluszak")){
-                    for (int i=0; i<animalCount; i++) {
-                    animals.add(new TeddyBear()); }}
-                if (animalType.equals("czarny niedźwiedż")){
-                    for (int i=0; i<animalCount; i++) {
-                        animals.add(new BlackBear()); }}
-                if (animalType.equals("polarny niedźwiedż")){
-                    for (int i=0; i<animalCount; i++) {
-                        animals.add(new PolarBear()); }}
-                if (animalType.equals("brązowy niedźwiedż")){
-                    for (int i=0; i<animalCount; i++) {
-                        animals.add(new BrownBear()); }}
-
+                for (int i = 0; i < animalCount; i++) {
+                    switch (animalType){
+                        case "pluszak":
+                            animals.add(new TeddyBear());
+                            break;
+                        case "czarny niedźwiedż":
+                            animals.add(new BlackBear());
+                            break;
+                        case "polarny niedźwiedż":
+                            animals.add(new PolarBear());
+                            break;
+                        case "brązowy niedźwiedż":
+                            animals.add(new BrownBear());
+                            break;
+                    }
+                }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
-
-//        for (int i = 0; i < 2; i++) {
-//            animals.add(new PolarBear());
-//        }
-//        for (int i = 0; i < 4; i++) {
-//            animals.add(new BrownBear());
-//        }
-//        for (int i = 0; i < 20; i++) {
-//            animals.add(new TeddyBear());
-//        }
-//        for (int i = 0; i < 2; i++) {
-//            animals.add(new BlackBear());
-//        }
     }
 
     public int getNumberOfAllAnimals() {
