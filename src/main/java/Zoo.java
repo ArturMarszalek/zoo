@@ -36,6 +36,11 @@ public class Zoo {
         }
     }
 
+    public void eatAllAnimals() {
+        animals.forEach(Animal::eat);
+        System.out.println("Nakarmiono " + animals.size() + " zwierzaków!");
+    }
+
     private Bear getAnimalByType(String animalType) throws Exception {
         return (Bear) Class.forName(animalType).getConstructor().newInstance();
     }
@@ -44,9 +49,14 @@ public class Zoo {
         return animals.size();
     }
 
+    public void setCurrentDate() {
+
+    }
+
     public HashMap<String, Integer> getAnimalsCount() {
 
         HashMap<String, Integer> animalsMap = new HashMap<>();
+
         animalsMap.put("PolarBear", 0);
         animalsMap.put("BlackBear", 0);
         animalsMap.put("BrownBear", 0);
