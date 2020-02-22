@@ -15,7 +15,8 @@ public class Zoo {
 
     private void initializeAnimalsInZooFromStaticFile() {
         try {
-            BufferedReader br = new BufferedReader(new FileReader("D:\\!SDA\\zoo1\\src\\main\\resources\\Animals"));
+            String animalsFilePath = getClass().getClassLoader().getResource("Animals").getFile();
+            BufferedReader br = new BufferedReader(new FileReader(animalsFilePath));
             String line;
             while ((line = br.readLine()) != null) {
                 String[] animalQuantity = line.split(" ");
