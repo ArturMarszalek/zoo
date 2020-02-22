@@ -2,6 +2,7 @@ package animals;
 
 import animals.bears.*;
 import animals.bears.Animal;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Zoo {
 
     private void initializeAnimalsInZooFromStaticFile() {
         try {
-          //  String resourceFile = getClass().getClassLoader().getResource("Animals.txt").getFile();
+            //  String resourceFile = getClass().getClassLoader().getResource("Animals.txt").getFile();
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Animals.txt"));
             String line;
             while ((line = br.readLine()) != null) {
@@ -30,7 +31,8 @@ public class Zoo {
                 for (int i = 0; i < animalCount; i++) {
                     Animal animalToAdd = null;
                     animalToAdd = createAnimalByType(animalType, animalToAdd);
-                    animals.add(animalToAdd);}
+                    animals.add(animalToAdd);
+                }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -39,7 +41,7 @@ public class Zoo {
 
 
     private Animal createAnimalByType(String animalType, Animal animalToAdd) {
-        switch (animalType){
+        switch (animalType) {
             case "pluszak":
                 return new TeddyBear();
             case "czarny niedźwiedż":
@@ -61,9 +63,25 @@ public class Zoo {
         };
         for (Animal animal : animals) {
             allAnimalsMap.putIfAbsent(animal.getName(), 0);
-                allAnimalsMap.put(animal.getName(), (allAnimalsMap.get(animal.getName()) + 1));
-            }
+            allAnimalsMap.put(animal.getName(), (allAnimalsMap.get(animal.getName()) + 1));
+        }
         return allAnimalsMap;
+    }
+
+    public void feedAnimals() {
+        for (Animal animal : animals) {
+            if (animal.isAlive()) {
+                animal.getEating();
+            }
+        }
+    }
+
+    public static void feedOneSpecies(Zoo zoo, String[] commandSplit) {
+        for (Animal animal : zoo.getAnimals()) {
+            if (animal.getName().equals(commandSplit[1]) && animal.isAlive()) {
+                animal.getEating();
+            }
+        }
     }
 
     public ArrayList<Animal> getAnimals() {

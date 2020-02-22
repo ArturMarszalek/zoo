@@ -17,26 +17,18 @@ public class Main {
             }
             switch (command) {
                 case "nakarm":
-                    for (Animal animal : zoo.getAnimals()) {
-
-                        if (animal.isAlive()) {
-                            animal.getEating();
-                        }
-                    }
+                    zoo.feedAnimals();
                     break;
                 case "nakarm jeden rodzaj":
-                    for (Animal animal : zoo.getAnimals()) {
-                        if (animal.getName().equals(commandSplit[1]) && animal.isAlive()) {
-                            animal.getEating();
-                        }
-                    }
+                    zoo.feedOneSpecies(zoo, commandSplit);
                     break;
                 case "exit":
                     isExit = true;
                     break;
-
             }
         }
 
     }
+
+
 }
