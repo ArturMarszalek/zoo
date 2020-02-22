@@ -65,4 +65,12 @@ public class Zoo {
             }
         return allAnimalsMap;
     }
+
+    public ArrayList<Animal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(ArrayList<Animal> animals) {
+        this.animals = animals;
+    }
 }

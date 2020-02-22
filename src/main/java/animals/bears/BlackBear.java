@@ -7,8 +7,6 @@ public class BlackBear extends Animal {
     }
 
 
-
-
     @Override
     public String getName() {
         return "czarny niedźwiedż";

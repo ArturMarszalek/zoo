@@ -5,7 +5,7 @@ import java.time.ZonedDateTime;
 
 public abstract class Animal extends animals.Animal {
 
-    ZonedDateTime lastMeal;
+    ZonedDateTime lastMeal = ZonedDateTime.now();;
     int weight;
 
     public Animal(ZonedDateTime lastEatingTime) {
@@ -18,9 +18,9 @@ public abstract class Animal extends animals.Animal {
 
     public void getEating(){
 
+        System.out.println(getName()+" nakarmiony");
         lastMeal = ZonedDateTime.now();
         weight+=5;
-
     }
 
     public boolean isAlive(){
@@ -28,7 +28,6 @@ public abstract class Animal extends animals.Animal {
         if (actualTime.minus(Period.ofDays(10)).isAfter(lastMeal) || weight<=0){
             return false;
         }
-
         return true;
     }
 
