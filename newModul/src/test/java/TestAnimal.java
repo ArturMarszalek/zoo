@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -127,5 +128,15 @@ class TestAnimal {
         Zoo zoo = new Zoo();
 int liczbaAnimali=zoo.getNumberOfAllAnimals();
 assertEquals(28,liczbaAnimali);
+    }
+
+    @Test
+    void shouldGetAnimalsCount(){
+        Zoo zoo = new Zoo();
+        HashMap<String,Integer> result=  zoo.getAnimalsCount();
+        assertEquals(20, result.get("PlushBear"));
+        assertEquals(2, result.get("PolarBear"));
+        assertEquals(4, result.get("BrownBear"));
+        assertEquals(2, result.get("BlackBear"));
     }
 }
