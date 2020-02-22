@@ -1,5 +1,5 @@
-public class PlushBear extends Bear {
-    public PlushBear() {
+public class TeddyBear extends Animal {
+    public TeddyBear() {
         super(null);
         weigth = 10;
     }
@@ -16,7 +16,7 @@ public class PlushBear extends Bear {
 
     @Override
     public String getName() {
-        return "Plushbear";
+        return "TeddyBear";
     }
 
     @Override
@@ -25,7 +25,7 @@ public class PlushBear extends Bear {
     }
 
     @Override
-    public String attack(Bear bear) {
+    public String attack(Animal bear) {
         return "I cant attack.";
     }
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TestBear {
+class TestAnimal {
     @Test
     void shouldIsAliveIfEat() {
         LocalDate lastMeal = LocalDate.now();
@@ -38,9 +38,9 @@ class TestBear {
 
     @Test
     void shouldIsPlushBearEat() {
-        PlushBear plushBear = new PlushBear();
-        plushBear.eat();
-        assertEquals(null, plushBear.getLastMeal());
+        TeddyBear teddyBear = new TeddyBear();
+        teddyBear.eat();
+        assertEquals(null, teddyBear.getLastMeal());
     }
 
     @Test
@@ -67,9 +67,9 @@ class TestBear {
         BlackBear blackBear = new BlackBear();
         blackBear.eat(50);
         assertEquals(250, blackBear.getWeight());
-        PlushBear plushBear = new PlushBear();
-        plushBear.eat(20);
-        assertEquals(10, plushBear.getWeight());
+        TeddyBear teddyBear = new TeddyBear();
+        teddyBear.eat(20);
+        assertEquals(10, teddyBear.getWeight());
     }
 
     @Test
@@ -80,8 +80,8 @@ class TestBear {
         assertEquals("I am the Brownbear with weigth 100.0. My last meal was 2020-02-16", brownBear.diplay());
         BlackBear blackBear = new BlackBear(LocalDate.now());
         assertEquals("I am the Blackbear with weigth 200.0. My last meal was 2020-02-16", blackBear.diplay());
-        PlushBear plushBear = new PlushBear();
-        assertEquals("I am the Plushbear with weigth 10.0. My last meal was null", plushBear.diplay());
+        TeddyBear teddyBear = new TeddyBear();
+        assertEquals("I am the Plushbear with weigth 10.0. My last meal was null", teddyBear.diplay());
     }
 
     @Test
@@ -92,8 +92,8 @@ class TestBear {
         assertEquals("I am the Brownbear. I am attacking", brownBear.displayAttack());
         BlackBear blackBear = new BlackBear(LocalDate.now());
         assertEquals("I am the Blackbear. I am attacking", blackBear.displayAttack());
-        PlushBear plushBear = new PlushBear();
-        assertEquals("I am the Plushbear. I cant attack", plushBear.displayAttack());
+        TeddyBear teddyBear = new TeddyBear();
+        assertEquals("I am the Plushbear. I cant attack", teddyBear.displayAttack());
     }
 
     @Test
@@ -101,11 +101,11 @@ class TestBear {
         PolarBear polarBear = new PolarBear(LocalDate.now());
         BrownBear brownBear = new BrownBear(LocalDate.now());
         BlackBear blackBear = new BlackBear(LocalDate.now());
-        PlushBear plushBear = new PlushBear();
+        TeddyBear teddyBear = new TeddyBear();
         assertEquals("I am the Blackbear. I am attacking Polarbear.", blackBear.attack(polarBear));
         assertEquals("I am the Brownbear. I am attacking Polarbear.", brownBear.attack(polarBear));
         assertEquals("I am the Polarbear. I am killing Brownbear.", polarBear.attack(brownBear));
-        assertEquals("I cant attack.", plushBear.attack(brownBear));
+        assertEquals("I cant attack.", teddyBear.attack(brownBear));
     }
 
     @Test
@@ -120,4 +120,5 @@ class TestBear {
         boolean isTest2 = blackBear.isAlive();
         assertTrue(isTest2);
     }
+
 }

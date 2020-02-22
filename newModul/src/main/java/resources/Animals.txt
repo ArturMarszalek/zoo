@@ -1,0 +1,4 @@
+BlackBear 2
+PolarBear 2
+TeddyBear 20
+BrownBear 4

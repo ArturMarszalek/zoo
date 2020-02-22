@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class BrownBear extends Bear {
+public class BrownBear extends Animal {
     public BrownBear() {
         super();
         weigth = 100;
@@ -18,6 +18,6 @@ public class BrownBear extends Bear {
 
     @Override
     public String getName() {
-        return "Brownbear";
+        return "BrownBear";
     }
 }
