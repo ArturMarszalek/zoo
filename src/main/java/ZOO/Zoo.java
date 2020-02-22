@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Zoo {
     ArrayList<Animal> listOfAllAnimals = new ArrayList<>();
@@ -19,6 +21,11 @@ public class Zoo {
         initializeAnimalsInZooFromStaticFile();
     }
 
+    public void feedAllTheBeast(){
+        for (Animal animal : listOfAllAnimals) {
+            animal.eat(5);
+        }
+    }
     private void initializeAnimalsInZooFromStaticFile()   {
         try {
 
@@ -66,7 +73,6 @@ public class Zoo {
 
     public HashMap<String, Integer> getAnimalCount() {
         HashMap<String, Integer> animalCount = new HashMap<>();
-
         for (Animal animal : listOfAllAnimals) {
             String animalName = animal.getName();
 
@@ -76,7 +82,13 @@ public class Zoo {
                 animalCount.put(animalName, 1);
             }
         }
-
         return animalCount;
+    }
+
+    public void feedSpecificBeast(String beastName) {
+        List<Animal> Specific_bears = listOfAllAnimals.stream().filter(animal -> animal.getName().equals(beastName)).collect(Collectors.toList());
+        for (Animal animal : Specific_bears){
+            animal.eat(5);
+        }
     }
 }
