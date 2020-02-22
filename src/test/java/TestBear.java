@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,9 +39,9 @@ class TestBear {
 
     @Test
     void shouldIsPlushBearEat() {
-        PlushBear plushBear = new PlushBear();
-        plushBear.eat();
-        assertEquals(null, plushBear.getLastMeal());
+        TeddyBear teddyBear = new TeddyBear();
+        teddyBear.eat();
+        assertEquals(null, teddyBear.getLastMeal());
     }
 
     @Test
@@ -69,9 +68,9 @@ class TestBear {
         BlackBear blackBear = new BlackBear();
         blackBear.eat(50);
         assertEquals(250, blackBear.getWeight());
-        PlushBear plushBear = new PlushBear();
-        plushBear.eat(20);
-        assertEquals(10, plushBear.getWeight());
+        TeddyBear teddyBear = new TeddyBear();
+        teddyBear.eat(20);
+        assertEquals(10, teddyBear.getWeight());
     }
 
     /*@Test
@@ -94,8 +93,8 @@ class TestBear {
         assertEquals("I am the Brownbear. I am attacking", brownBear.displayAttack());
         BlackBear blackBear = new BlackBear(LocalDate.now());
         assertEquals("I am the Blackbear. I am attacking", blackBear.displayAttack());
-        PlushBear plushBear = new PlushBear();
-        assertEquals("I am the Plushbear. I cant attack", plushBear.displayAttack());
+        TeddyBear teddyBear = new TeddyBear();
+        assertEquals("I am the Plushbear. I cant attack", teddyBear.displayAttack());
     }
 
     @Test
@@ -103,11 +102,11 @@ class TestBear {
         PolarBear polarBear = new PolarBear(LocalDate.now());
         BrownBear brownBear = new BrownBear(LocalDate.now());
         BlackBear blackBear = new BlackBear(LocalDate.now());
-        PlushBear plushBear = new PlushBear();
+        TeddyBear teddyBear = new TeddyBear();
         assertEquals("I am the Blackbear. I am attacking Polarbear.", blackBear.attack(polarBear));
         assertEquals("I am the Brownbear. I am attacking Polarbear.", brownBear.attack(polarBear));
         assertEquals("I am the Polarbear. I am killing Brownbear.", polarBear.attack(brownBear));
-        assertEquals("I cant attack.", plushBear.attack(brownBear));
+        assertEquals("I cant attack.", teddyBear.attack(brownBear));
     }
 
     @Test
@@ -130,30 +129,37 @@ class TestBear {
         //when
         int getNumberOfAllAnimals = zoo.getNumberOfAllAnimals();
         //then
-        assertEquals(4, getNumberOfAllAnimals);
+        assertEquals(28, getNumberOfAllAnimals);
     }
 
     @Test
     void shouldAddAnimals() {
         //given
         Zoo zoo = new Zoo();
-        zoo.addAnimal(new PolarBear());
-        zoo.addAnimal(new PolarBear());
-        zoo.addAnimal(new PolarBear());
-        zoo.addAnimal(new BrownBear());
-        zoo.addAnimal(new BrownBear());
-        zoo.addAnimal(new BrownBear());
-        zoo.addAnimal(new BrownBear());
-        zoo.addAnimal(new BrownBear());
-        zoo.addAnimal(new BrownBear());
-
         //when
         HashMap<String, Integer> result = zoo.getAnimalsCount();
         int polarBearsCount = result.get("PolarBear");
         int brownBearsCount = result.get("BrownBear");
 
         //then
-        assertEquals(3, polarBearsCount);
-        assertEquals(6, brownBearsCount);
+        assertEquals(2, polarBearsCount);
+        assertEquals(4, brownBearsCount);
+    }
+
+    @Test
+    void zooTest() {
+        //given
+        Zoo zoo = new Zoo();
+        //when
+        HashMap<String, Integer> result = zoo.getAnimalsCount();
+        int bearCount = result.get("BlackBear");
+        int polarCount = result.get("PolarBear");
+        int brownCount = result.get("BrownBear");
+        int teddyCount = result.get("TeddyBear");
+        //then
+        assertEquals(2, bearCount);
+        assertEquals(2, polarCount);
+        assertEquals(4, brownCount);
+        assertEquals(20, teddyCount);
     }
 }

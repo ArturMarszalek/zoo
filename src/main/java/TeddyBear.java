@@ -1,5 +1,5 @@
-public class PlushBear extends Bear {
-    public PlushBear() {
+public class TeddyBear extends Bear {
+    public TeddyBear() {
         super(null);
         weigth = 10;
     }
