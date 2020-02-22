@@ -2,7 +2,7 @@ package zwierzeta;
 
 import java.time.LocalDate;
 
-public class BlackBear extends Bear {
+public class BlackBear extends Animal {
 
     public BlackBear() {
         super();
@@ -18,7 +18,7 @@ public class BlackBear extends Bear {
     }
 
     @Override
-    public String Attack(Bear bear) {
+    public String Attack(Animal bear) {
         return "Ja " + getName() + " zatakuje " + bear.getName();
     }
 

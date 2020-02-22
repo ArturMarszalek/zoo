@@ -2,7 +2,7 @@ package zwierzeta;
 
 
 
-public class TeddyBear extends Bear {
+public class TeddyBear extends Animal {
 
     public TeddyBear() {
         super();
@@ -20,7 +20,7 @@ public class TeddyBear extends Bear {
     }
 
     @Override
-    public String Attack(Bear bear) {
+    public String Attack(Animal bear) {
         return null;
     }
 

@@ -33,7 +33,7 @@ public class BlackBearTest {
     void shouldGetEating() {
         //given
         LocalDate now = LocalDate.now();
-        Bear blackBear = new BlackBear(now);
+        Animal blackBear = new BlackBear(now);
         //when
         blackBear.eat();
         //then
@@ -45,7 +45,7 @@ public class BlackBearTest {
     void shouldTeddyBearEat() {
         //given
         LocalDate now = LocalDate.now();
-        Bear teddyBear = new TeddyBear();
+        Animal teddyBear = new TeddyBear();
         //when
         teddyBear.eat();
         //then
@@ -56,8 +56,8 @@ public class BlackBearTest {
     void shouldAllBearHaveDefaultWeight() {
         //given
         //given
-        Bear blackBear = new BlackBear();
-        Bear polarBear = new PolarBear();
+        Animal blackBear = new BlackBear();
+        Animal polarBear = new PolarBear();
         //then
         assertEquals(200, polarBear.getWeight());
         assertEquals(50, blackBear.getWeight());
@@ -65,9 +65,9 @@ public class BlackBearTest {
 
     @Test
     void shouldDoNOtEatNothing() {
-        Bear blackBear = new BlackBear();
-        Bear brownBear = new BrownBear();
-        Bear polarBear = new PolarBear();
+        Animal blackBear = new BlackBear();
+        Animal brownBear = new BrownBear();
+        Animal polarBear = new PolarBear();
         blackBear.eat();
         brownBear.eat();
         polarBear.eat();
@@ -81,9 +81,9 @@ public class BlackBearTest {
     void shouldPrintKindOfBear() {
         //given
 
-        Bear blackBear = new BlackBear();
-        Bear polarBear = new PolarBear();
-        Bear bronzeBear = new BrownBear();
+        Animal blackBear = new BlackBear();
+        Animal polarBear = new PolarBear();
+        Animal bronzeBear = new BrownBear();
         //when
         //then
         assertEquals(blackBear.display(), "jestem niedzwiedziem Czarnym");
@@ -94,9 +94,9 @@ public class BlackBearTest {
     @Test
     void shouldBearAttack() {
         //given
-        Bear blackBear = new BlackBear();
-        Bear polarBear = new PolarBear();
-        Bear brownBear = new BrownBear();
+        Animal blackBear = new BlackBear();
+        Animal polarBear = new PolarBear();
+        Animal brownBear = new BrownBear();
         //when
         polarBear.Attack(blackBear);
         blackBear.Attack(brownBear);
