@@ -1,13 +1,14 @@
 import java.time.LocalDate;
 
-public class Bear {
+public class Animal {
+
     protected LocalDate lastMeal;
     protected int weight;
 
-    public Bear() {
+    public Animal() {
         this(null);
     }
-    public Bear(LocalDate lastMeal) {
+    public Animal(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }
 

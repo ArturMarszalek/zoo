@@ -1,6 +1,6 @@
 
 
-public class TeddyBear extends Bear {
+public class TeddyBear extends Animal {
     public TeddyBear() {
         super(null);
         weight = 5;

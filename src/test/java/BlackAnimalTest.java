@@ -1,12 +1,10 @@
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BlackBearTest {
+class BlackAnimalTest {
 
     @Test
     void shouldReturnTrueWhenBearAteAtLeastInLast10Days() {
@@ -55,7 +53,7 @@ class BlackBearTest {
     @Test
     void shouldDoNothingOnEating() {
         //given
-        Bear teddyBear = new TeddyBear();
+        Animal teddyBear = new TeddyBear();
         assertEquals(5, teddyBear.getWeight());
         //when
         teddyBear.eat(100);
@@ -66,7 +64,7 @@ class BlackBearTest {
     @Test
     void shouldIncreaseWeightOnEating() {
         //given
-        Bear teddyBear = new BlackBear();
+        Animal teddyBear = new BlackBear();
         assertEquals(100, teddyBear.getWeight());
         //when
         teddyBear.eat(33);

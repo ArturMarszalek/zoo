@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-public class PolarBear extends Bear {
+public class PolarBear extends Animal {
     public PolarBear() {
         this(null);
     }
