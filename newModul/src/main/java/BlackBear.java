@@ -20,4 +20,10 @@ public class BlackBear extends Animal {
     public String getName() {
         return "BlackBear";
     }
+
+    @Override
+    public boolean isAlive(LocalDate currentDay) {
+        return lastMeal.isAfter(currentDay.minusDays(5));
+    }
 }
+

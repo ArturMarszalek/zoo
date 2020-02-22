@@ -5,7 +5,8 @@ public abstract class Animal {
 
     private Animal bear;
     protected double weigth;
-    private LocalDate lastMeal;
+    protected LocalDate lastMeal;
+
     protected String name;
 
     public Animal() {
@@ -24,16 +25,23 @@ public abstract class Animal {
         return lastMeal;
     }
 
-    public boolean isAlive() {
-        return lastMeal.isAfter(LocalDate.now().minusDays(10)) && getWeight() > 0;
+    public void setLastMeal(LocalDate lastMeal) {
+        this.lastMeal = lastMeal;
+    }
+
+    public boolean isAlive(LocalDate currentDay) {
+        // przed ustawieniem timera smierci:
+        //return lastMeal.isAfter(LocalDate.now().minusDays(10)) && getWeight() > 0;
+        return lastMeal.isAfter(currentDay.minusDays(10));
     }
 
     public double getWeight() {
         return weigth;
     }
 
-    public void eat() {
-        lastMeal = LocalDate.now();
+    public void eat(LocalDate currentDay) {
+        setLastMeal(currentDay);
+        System.out.println("I " + getName() + " was feeded on: " + getLastMeal());
     }
 
     public void eat(int mealWeigth) {
@@ -61,5 +69,6 @@ public abstract class Animal {
     public String whatIDo() {
         return "I am attacking";
     }
+
 
 }

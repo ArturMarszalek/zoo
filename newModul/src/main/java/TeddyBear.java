@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class TeddyBear extends Animal {
     public TeddyBear() {
         super(null);
@@ -5,8 +7,13 @@ public class TeddyBear extends Animal {
     }
 
     @Override
-    public void eat() {
+    public boolean isAlive(LocalDate currentDay) {
+        return true;
+    }
 
+    @Override
+    public void eat(LocalDate currentDay) {
+        System.out.println("Teddy Bears don't eat!");
     }
 
     @Override
