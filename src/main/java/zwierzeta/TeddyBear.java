@@ -26,7 +26,7 @@ public class TeddyBear extends Animal {
 
     @Override
     protected String getName() {
-        return null;
+        return "TeddyBear";
     }
 
 }
