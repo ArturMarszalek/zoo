@@ -9,7 +9,7 @@ public class Main {
         Zoo zoo = new Zoo();
         Scanner scanner = new Scanner(System.in);
         while (!isExit) {
-            System.out.println("Wpisz komende (nakarm, nakarm:<kogo>, exit) : ");
+            System.out.println("Wpisz komende (nakarm, nakarm:kogo?, exit) : ");
             String command = scanner.nextLine().trim();
             String[] commandSplit = command.split(":");
             if (commandSplit.length > 1) {
@@ -26,7 +26,7 @@ public class Main {
                     break;
                 case "nakarm jeden rodzaj":
                     for (Animal animal : zoo.getAnimals()) {
-                        if (animal.getName().equals(commandSplit[1])) {
+                        if (animal.getName().equals(commandSplit[1]) && animal.isAlive()) {
                             animal.getEating();
                         }
                     }
