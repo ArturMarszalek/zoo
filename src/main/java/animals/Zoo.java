@@ -2,7 +2,6 @@ package animals;
 
 import animals.bears.*;
 import animals.bears.Animal;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -14,6 +13,11 @@ public class Zoo {
 
     public Zoo() {
 
+        initializeAnimalsInZooFromStaticFile();
+
+    }
+
+    private void initializeAnimalsInZooFromStaticFile() {
         try {
           //  String resourceFile = getClass().getClassLoader().getResource("Animals.txt").getFile();
             BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Animals.txt"));
@@ -24,26 +28,28 @@ public class Zoo {
                 int animalCount = Integer.parseInt(animalQuantity[1]);
 
                 for (int i = 0; i < animalCount; i++) {
-                    switch (animalType){
-                        case "pluszak":
-                            animals.add(new TeddyBear());
-                            break;
-                        case "czarny niedźwiedż":
-                            animals.add(new BlackBear());
-                            break;
-                        case "polarny niedźwiedż":
-                            animals.add(new PolarBear());
-                            break;
-                        case "brązowy niedźwiedż":
-                            animals.add(new BrownBear());
-                            break;
-                    }
-                }
+                    Animal animalToAdd = null;
+                    animalToAdd = createAnimalByType(animalType, animalToAdd);
+                    animals.add(animalToAdd);}
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
 
+
+    private Animal createAnimalByType(String animalType, Animal animalToAdd) {
+        switch (animalType){
+            case "pluszak":
+                return new TeddyBear();
+            case "czarny niedźwiedż":
+                return new BlackBear();
+            case "polarny niedźwiedż":
+                return new PolarBear();
+            case "brązowy niedźwiedż":
+                return new BrownBear();
+        }
+        return animalToAdd;
     }
 
     public int getNumberOfAllAnimals() {
