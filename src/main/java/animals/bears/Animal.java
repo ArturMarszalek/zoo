@@ -1,20 +1,19 @@
 package animals.bears;
 
-import animals.Animal;
 import java.time.Period;
 import java.time.ZonedDateTime;
 
-public abstract class Bear extends Animal {
+public abstract class Animal extends animals.Animal {
 
     ZonedDateTime lastMeal;
     int weight;
 
-    public Bear(ZonedDateTime lastEatingTime) {
+    public Animal(ZonedDateTime lastEatingTime) {
         this();
         this.lastMeal = lastEatingTime;
     }
 
-    public Bear() {
+    public Animal() {
     }
 
     public void getEating(){
@@ -55,6 +54,6 @@ public abstract class Bear extends Animal {
 
     public abstract String getName();
 
-    public abstract void attack(Bear target);
+    public abstract void attack(Animal target);
 
 }

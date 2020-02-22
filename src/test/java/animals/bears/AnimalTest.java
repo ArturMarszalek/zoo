@@ -1,24 +1,22 @@
 package animals.bears;
 
-import com.sun.org.apache.xpath.internal.res.XPATHErrorResources_pt_BR;
 import org.junit.jupiter.api.Test;
 
 import java.time.Period;
 import java.time.ZonedDateTime;
-import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class BearTest {
+class AnimalTest {
 
     @Test
     void shouldGetEating(){
         //given
-        Bear bear = new BlackBear();
+        Animal animal = new BlackBear();
         ZonedDateTime actualTime = ZonedDateTime.now();
-        bear.getEating();
+        animal.getEating();
         //when
-        ZonedDateTime result = bear.getLastMeal();
+        ZonedDateTime result = animal.getLastMeal();
         //then
         assertThat(result.getDayOfMonth()).isEqualTo(actualTime.getDayOfMonth());
     }
@@ -26,10 +24,10 @@ class BearTest {
     @Test
     void shouldIsAlife(){
         //given
-        Bear bear = new BrownBear();
-        bear.setLastMeal(ZonedDateTime.now().minus(Period.ofDays(11)));
+        Animal animal = new BrownBear();
+        animal.setLastMeal(ZonedDateTime.now().minus(Period.ofDays(11)));
         //when
-        Boolean result = bear.isAlive();
+        Boolean result = animal.isAlive();
         //then
         assertThat(result).isFalse();
     }
@@ -37,10 +35,10 @@ class BearTest {
     @Test
     void shouldIsAlife2(){
         //given
-        Bear bear = new PolarBear();
-        bear.setLastMeal(ZonedDateTime.now().minus(Period.ofDays(9)));
+        Animal animal = new PolarBear();
+        animal.setLastMeal(ZonedDateTime.now().minus(Period.ofDays(9)));
         //when
-        Boolean result = bear.isAlive();
+        Boolean result = animal.isAlive();
         //then
         assertThat(result).isTrue();
     }
@@ -82,9 +80,9 @@ class BearTest {
     @Test
     void shouldgetWeightBlackBear(){
         //given
-        Bear bear = new BlackBear();
+        Animal animal = new BlackBear();
         //when
-        int result = bear.getWeight();
+        int result = animal.getWeight();
         //then
         assertThat(result).isEqualTo(50);
     }
@@ -92,13 +90,13 @@ class BearTest {
     @Test
     void shouldgetWeightBrownBear(){
         //given
-        Bear bear = new BrownBear();
-        bear.getEating();
-        bear.getEating();
-        bear.getEating();
-        bear.getEating();
+        Animal animal = new BrownBear();
+        animal.getEating();
+        animal.getEating();
+        animal.getEating();
+        animal.getEating();
         //when
-        int result = bear.getWeight();
+        int result = animal.getWeight();
         //then
         assertThat(result).isEqualTo(120);
     }
@@ -106,10 +104,10 @@ class BearTest {
     @Test
     void shouldgetWeightPolarBear(){
         //given
-        Bear bear = new PolarBear();
-        bear.getEating();
+        Animal animal = new PolarBear();
+        animal.getEating();
         //when
-        int result = bear.getWeight();
+        int result = animal.getWeight();
         //then
         assertThat(result).isEqualTo(205);
     }
@@ -117,9 +115,9 @@ class BearTest {
     @Test
     void shouldsumWeightAllBears(){
         //given
-        Bear polarbear = new PolarBear();
-        Bear brownbear = new BrownBear();
-        Bear blackbear = new BlackBear();
+        Animal polarbear = new PolarBear();
+        Animal brownbear = new BrownBear();
+        Animal blackbear = new BlackBear();
         polarbear.getEating();
         polarbear.getEating();
         brownbear.getEating();
@@ -133,7 +131,7 @@ class BearTest {
     @Test
     void shouldDisplayPolarBear(){
         //given
-        Bear polarbear = new PolarBear();
+        Animal polarbear = new PolarBear();
         //when
         String result = polarbear.display();
         //then
@@ -143,9 +141,9 @@ class BearTest {
     @Test
     void shouldDisplayBlackBear(){
         //given
-        Bear blackBear = new BlackBear();
+        Animal blackAnimal = new BlackBear();
         //when
-        String result = blackBear.display();
+        String result = blackAnimal.display();
         //then
         assertThat(result).isEqualTo("Jestem czarny niedźwiedż");
     }
@@ -185,25 +183,25 @@ class BearTest {
     @Test
     void shouldAttack(){
         //given
-        Bear blackBear = new BlackBear();
-        Bear polarBear = new PolarBear();
-        polarBear.setLastMeal(ZonedDateTime.now());
+        Animal blackAnimal = new BlackBear();
+        Animal polarAnimal = new PolarBear();
+        polarAnimal.setLastMeal(ZonedDateTime.now());
         //when
-        blackBear.attack(polarBear);
+        blackAnimal.attack(polarAnimal);
         //then
-        assertThat(polarBear.weight).isEqualTo(175);
-        assertThat(polarBear.isAlive()).isTrue();
+        assertThat(polarAnimal.weight).isEqualTo(175);
+        assertThat(polarAnimal.isAlive()).isTrue();
     }
 
     @Test
     void shouldAttack2(){
         //given
-        Bear teddyBear = new TeddyBear();
-        Bear blackBear = new BlackBear();
+        Animal teddyAnimal = new TeddyBear();
+        Animal blackAnimal = new BlackBear();
         //when
-        blackBear.attack(teddyBear);
+        blackAnimal.attack(teddyAnimal);
         //then
-        assertThat(teddyBear.weight).isEqualTo(-20);
-        assertThat(teddyBear.isAlive()).isFalse();
+        assertThat(teddyAnimal.weight).isEqualTo(-20);
+        assertThat(teddyAnimal.isAlive()).isFalse();
     }
 }

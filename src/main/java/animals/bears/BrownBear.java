@@ -1,6 +1,6 @@
 package animals.bears;
 
-public class BrownBear extends Bear{
+public class BrownBear extends Animal {
 
     public BrownBear() {
         setWeight(100);
@@ -12,7 +12,7 @@ public class BrownBear extends Bear{
     }
 
     @Override
-    public void attack(Bear target) {
+    public void attack(Animal target) {
         target.setWeight((int) (target.getWeight()-weight*0.5));
 
     }

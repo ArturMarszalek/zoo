@@ -2,7 +2,7 @@ package animals.bears;
 
 import java.time.ZonedDateTime;
 
-public class TeddyBear extends Bear{
+public class TeddyBear extends Animal {
 
     public TeddyBear() {
         setWeight(5);
@@ -29,11 +29,11 @@ public class TeddyBear extends Bear{
 
     @Override
     public String getName() {
-        return "pluszakiem";
+        return "pluszak";
     }
 
     @Override
-    public void attack(Bear target) {
+    public void attack(Animal target) {
 
 }
 }
