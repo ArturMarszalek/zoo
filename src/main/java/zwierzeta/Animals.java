@@ -3,7 +3,7 @@ package zwierzeta;
 import java.time.LocalDate;
 
 
-public abstract class Animal {
+public abstract class Animals {
 
     protected LocalDate lastMeal;
     protected LocalDate mealTime;
@@ -35,7 +35,7 @@ public abstract class Animal {
     public String display() {
         return "jestem niedzwiedziem " + getName();
     }
-    public abstract String Attack(Animal bear);
+    public abstract String Attack(Animals bear);
 
 
     protected abstract String getName();
