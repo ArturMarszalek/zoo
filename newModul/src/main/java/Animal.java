@@ -1,16 +1,25 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-public abstract class Bear {
-    private Bear bear;
+public abstract class Animal {
+    HashMap<String, ArrayList<Animal>> animals = new HashMap<>();
+
+    public Animal(HashMap<String, ArrayList<Animal>> animals){
+        this.animals=animals;
+        animals.put("polar", new ArrayList<>());
+    }
+
+    private Animal animal;
     protected double weigth;
     private LocalDate lastMeal;
     protected String name;
 
-    public Bear() {
+    public Animal() {
 
     }
 
-    public Bear(LocalDate lastMeal) {
+    public Animal(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }
 
@@ -48,9 +57,9 @@ public abstract class Bear {
         return "I am the " + getName() + ". " + whatIDo();
     }
 
-    public String attack(Bear bear) {
-        bear.setWeight(bear.getWeight() - attackPower());
-        return "I am the " + getName() + ". " + whatIDo() + " " + bear.getName() + ".";
+    public String attack(Animal animal) {
+        animal.setWeight(animal.getWeight() - attackPower());
+        return "I am the " + getName() + ". " + whatIDo() + " " + animal.getName() + ".";
     }
 
     public double attackPower() {

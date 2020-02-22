@@ -1,6 +1,8 @@
-public class PlushBear extends Bear {
+import java.time.LocalDate;
+
+public class PlushBear extends Animal {
     public PlushBear() {
-        super(null);
+        super((LocalDate) null);
         weigth = 10;
     }
 
@@ -25,7 +27,7 @@ public class PlushBear extends Bear {
     }
 
     @Override
-    public String attack(Bear bear) {
+    public String attack(Animal animal) {
         return "I cant attack.";
     }
 }
