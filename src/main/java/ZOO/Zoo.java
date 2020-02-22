@@ -28,6 +28,7 @@ public class Zoo {
                 String[] animalQuantity = line.split(" ");
                 String animalType = animalQuantity[0];
                 int animalCount = Integer.parseInt(animalQuantity[1]);
+
                 for (int i = 0; i < animalCount; i++) {
                     createAnimalByType(animalType);
                 }
@@ -52,6 +53,7 @@ public class Zoo {
                 listOfAllAnimals.add(new TeddyBear());
                 break;
             default:
+                System.out.println("Unhandles animal");
                 break;
         }
     }
