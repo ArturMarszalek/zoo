@@ -4,6 +4,15 @@ public class Main {
 
 
     public static void main(String[] args) {
+
+        ZooTimer zooTimer = new ZooTimer();
+        zooTimer.start();
+
+        actionToBeDone();
+
+    }
+
+    private static void actionToBeDone() {
         Zoo zoo = new Zoo();
 
         System.out.println("Co byś chciał zrobić mordo?");
@@ -37,6 +46,22 @@ public class Main {
                     System.exit(1);
                     break;
             }
+        }
+    }
+
+
+    public static class ZooTimer extends Thread {
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("Minął kolejny dzien");
+            run();
         }
     }
 }

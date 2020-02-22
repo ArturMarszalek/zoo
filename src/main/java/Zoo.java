@@ -10,6 +10,8 @@ public class Zoo {
 
     ArrayList<Bear> animals = new ArrayList<>();
 
+
+
     public Zoo() {
         initializeAnimalsInZooFromStaticFile();
     }
@@ -78,4 +80,6 @@ public class Zoo {
             feedBlack.eat();
         }
     }
+
+
 }
