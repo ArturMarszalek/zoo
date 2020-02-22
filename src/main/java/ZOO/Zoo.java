@@ -1,55 +1,77 @@
 package ZOO;
 
 import ZOO.Species.BlackBear;
-import ZOO.Species.BronzeBear;
+import ZOO.Species.BrownBear;
 import ZOO.Species.PolarBear;
 import ZOO.Species.TeddyBear;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.invoke.SwitchPoint;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Zoo {
-    ArrayList<Bear> ListOfAllAnimals = new ArrayList<>();
+    ArrayList<Animal> listOfAllAnimals = new ArrayList<>();
 
-    public Zoo() {
-        ListOfAllAnimals.add(new BlackBear());
-        ListOfAllAnimals.add(new BlackBear());
-        ListOfAllAnimals.add(new PolarBear());
-        ListOfAllAnimals.add(new PolarBear());
-        ListOfAllAnimals.add(new BronzeBear());
-        ListOfAllAnimals.add(new BronzeBear());
-        ListOfAllAnimals.add(new BronzeBear());
-        ListOfAllAnimals.add(new BronzeBear());
-        for (int i = 0; i < 20; i++) {
-            ListOfAllAnimals.add(new TeddyBear());
+    public Zoo()   {
+        initializeAnimalsInZooFromStaticFile();
+    }
+
+    private void initializeAnimalsInZooFromStaticFile()   {
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\Animals.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] animalQuantity = line.split(" ");
+                String animalType = animalQuantity[0];
+                int animalCount = Integer.parseInt(animalQuantity[1]);
+                for (int i = 0; i < animalCount; i++) {
+                    createAnimalByType(animalType);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e);
         }
+    }
 
+    private void createAnimalByType(String animalType) {
+        switch (animalType) {
+            case "BlackBear":
+                listOfAllAnimals.add(new BlackBear());
+                break;
+            case "PolarBear":
+                listOfAllAnimals.add(new PolarBear());
+                break;
+            case "BrownBear":
+                listOfAllAnimals.add(new BrownBear());
+                break;
+            case "TeddyBear":
+                listOfAllAnimals.add(new TeddyBear());
+                break;
+            default:
+                break;
+        }
     }
 
     public int getNumberOfAllAnimals() {
 
-        return ListOfAllAnimals.size();
+        return listOfAllAnimals.size();
     }
 
 
     public HashMap<String, Integer> getAnimalCount() {
         HashMap<String, Integer> animalCount = new HashMap<>();
-        //Normalny for
-        /*for (int i = 0; i < ListOfAllAnimals.size(); i++) {
-            if (animalCount.get(ListOfAllAnimals.get(i).getName()) != null) {
-                animalCount.put(ListOfAllAnimals.get(i).getName(), animalCount.get(ListOfAllAnimals.get(i).getName()) + 1);
-            }else{
-                animalCount.put(ListOfAllAnimals.get(i).getName(),1);
-            }
-        }
-        */
 
-        //to samo foreach'em
-        for (Bear bear : ListOfAllAnimals){
-            if (animalCount.get(bear.getName()) != null){
-                animalCount.put(bear.getName(),animalCount.get(bear.getName())+1);
-            }else{
-                animalCount.put(bear.getName(),1);
+        for (Animal animal : listOfAllAnimals) {
+            String animalName = animal.getName();
+
+            if (animalCount.get(animalName) != null) {
+                animalCount.put(animalName, animalCount.get(animalName) + 1);
+            } else {
+                animalCount.put(animalName, 1);
             }
         }
 

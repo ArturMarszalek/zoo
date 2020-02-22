@@ -2,19 +2,19 @@ package ZOO;
 
 import java.time.LocalDate;
 
-public abstract class Bear {
+public abstract class Animal {
     protected LocalDate lastMeal;
     protected int weight;
 
-    public Bear(int weight) {
+    public Animal(int weight) {
         this.weight = weight;
     }
 
-    public Bear(LocalDate lastMeal) {
+    public Animal(LocalDate lastMeal) {
         this.lastMeal = lastMeal;
     }
 
-    public Bear() {
+    public Animal() {
 
     }
 
@@ -39,7 +39,7 @@ public abstract class Bear {
         return lastMeal;
     }
 
-    public String attack(Bear target) {
+    public String attack(Animal target) {
         target.youAreAttacked(weight * 0.5);
         return "You " + target.getName() + " are wounded by " + getName();
     }

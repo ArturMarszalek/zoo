@@ -1,18 +1,18 @@
 package ZOO.Species;
 
-import ZOO.Bear;
+import ZOO.Animal;
 
 import java.time.LocalDate;
 
-public class BronzeBear extends Bear {
-    public BronzeBear(LocalDate lastMeal) {
+public class BrownBear extends Animal {
+    public BrownBear(LocalDate lastMeal) {
         super(lastMeal);
     }
 
-    public BronzeBear() {
+    public BrownBear() {
     }
 
-    public BronzeBear(int weight) {
+    public BrownBear(int weight) {
         super(weight);
     }
 

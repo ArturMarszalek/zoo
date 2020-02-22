@@ -1,10 +1,10 @@
 package ZOO.Species;
 
-import ZOO.Bear;
+import ZOO.Animal;
 
 import java.time.LocalDate;
 
-public class TeddyBear extends Bear {
+public class TeddyBear extends Animal {
     public TeddyBear(LocalDate lastMeal) {
         super(lastMeal);
     }
@@ -31,7 +31,7 @@ public class TeddyBear extends Bear {
     }
 
     @Override
-    public String attack(Bear target) {
+    public String attack(Animal target) {
         target.youAreAttacked(0);
         return "You "+target.getName()+" are hugged by "+getName();
     }
