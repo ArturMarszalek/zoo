@@ -4,9 +4,8 @@ import java.util.HashMap;
 
 public class Zoo {
     ArrayList<Animal> animals = new ArrayList<>();
-    HashMap<String , Integer> mapaAnimali=new HashMap<>();
 
-    public Zoo(){
+    public Zoo() {
         animals.add(new BlackBear());
         animals.add(new BlackBear());
         animals.add(new PolarBear());
@@ -15,7 +14,7 @@ public class Zoo {
         animals.add(new BrownBear());
         animals.add(new BrownBear());
         animals.add(new BrownBear());
-        for (int i =0;i<20;i++){
+        for (int i = 0; i < 20; i++) {
             animals.add(new PlushBear());
         }
     }
@@ -24,17 +23,18 @@ public class Zoo {
         return animals.size();
     }
 
-    public HashMap<String,Integer> getAnimalsCount(){
-            for (Animal animal : animals) {
-                if (mapaAnimali.containsKey(animal.getName())) {
-                    mapaAnimali.put(animal.getName(), (mapaAnimali.get(animal.getName()) + 1));
-                } else {
-                    mapaAnimali.put(animal.getName(), 1);
-                }
+    public HashMap<String, Integer> getAnimalsCount() {
+        HashMap<String, Integer> mapaAnimali = new HashMap<>();
+        for (Animal animalName1 : animals) {
+            String animalName= animalName1.getName();
+            if (mapaAnimali.containsKey(animalName)) {
+                mapaAnimali.put(animalName, (mapaAnimali.get(animalName) + 1));
+            } else {
+                mapaAnimali.put(animalName, 1);
             }
+        }
         return mapaAnimali;
     }
-
 
 
 }

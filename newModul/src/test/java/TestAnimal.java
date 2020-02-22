@@ -75,13 +75,13 @@ class TestAnimal {
 
     @Test
     void shouldDisplayBears() {
-        LocalDate data= LocalDate.now();
+        LocalDate data = LocalDate.now();
         PolarBear polarBear = new PolarBear(LocalDate.now());
-        assertEquals("I am the Polarbear with weigth 50.0. My last meal was "+data, polarBear.diplay());
+        assertEquals("I am the Polarbear with weigth 50.0. My last meal was " + data, polarBear.diplay());
         BrownBear brownBear = new BrownBear(LocalDate.now());
-        assertEquals("I am the Brownbear with weigth 100.0. My last meal was "+data, brownBear.diplay());
+        assertEquals("I am the Brownbear with weigth 100.0. My last meal was " + data, brownBear.diplay());
         BlackBear blackBear = new BlackBear(LocalDate.now());
-        assertEquals("I am the Blackbear with weigth 200.0. My last meal was "+data, blackBear.diplay());
+        assertEquals("I am the Blackbear with weigth 200.0. My last meal was " + data, blackBear.diplay());
         PlushBear plushBear = new PlushBear();
         assertEquals("I am the Plushbear with weigth 10.0. My last meal was null", plushBear.diplay());
     }
@@ -124,16 +124,16 @@ class TestAnimal {
     }
 
     @Test
-    void shouldGetNumberOfAllAnimals(){
+    void shouldGetNumberOfAllAnimals() {
         Zoo zoo = new Zoo();
-int liczbaAnimali=zoo.getNumberOfAllAnimals();
-assertEquals(28,liczbaAnimali);
+        int liczbaAnimali = zoo.getNumberOfAllAnimals();
+        assertEquals(28, liczbaAnimali);
     }
 
     @Test
-    void shouldGetAnimalsCount(){
+    void shouldGetAnimalsCount() {
         Zoo zoo = new Zoo();
-        HashMap<String,Integer> result=  zoo.getAnimalsCount();
+        HashMap<String, Integer> result = zoo.getAnimalsCount();
         assertEquals(20, result.get("Plushbear"));
         assertEquals(2, result.get("Polarbear"));
         assertEquals(4, result.get("Brownbear"));
