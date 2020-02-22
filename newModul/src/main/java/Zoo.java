@@ -25,15 +25,11 @@ public class Zoo {
 
     public HashMap<String, Integer> getAnimalsCount() {
         HashMap<String, Integer> mapaAnimali = new HashMap<>();
-        for (Animal animalName1 : animals) {
-            String animalName= animalName1.getName();
-            if (mapaAnimali.containsKey(animalName)) {
-                mapaAnimali.put(animalName, (mapaAnimali.get(animalName) + 1));
-            } else {
-                mapaAnimali.put(animalName, 1);
-            }
+        for (Animal animal : animals) {
+            mapaAnimali.putIfAbsent(animal.getName(), 0);
+            mapaAnimali.put(animal.getName(), (mapaAnimali.get(animal.getName()) + 1));
         }
-        return mapaAnimali;
+            return mapaAnimali;
     }
 
 
