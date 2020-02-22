@@ -7,6 +7,11 @@ public class TeddyBear extends Bear {
         this.lastMeal = lastMeal;
     }
 
+    public TeddyBear() {
+        super();
+        weight = 5;
+    }
+
     @Override
     public String getName() {
         return "Teddy Bear";

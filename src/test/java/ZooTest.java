@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Map;
 
 public class ZooTest {
 
@@ -23,7 +23,7 @@ public class ZooTest {
         //given
         Zoo zoo = new Zoo();
         //when
-        HashMap<String, Integer> result = zoo.countAllAnimals();
+        Map<String, Integer> result = zoo.getAnimalsCount();
         //then
         Assertions.assertEquals(20, result.get("Teddy Bear"));
         Assertions.assertEquals(2, result.get("Polar Bear"));
