@@ -54,8 +54,7 @@ public abstract class Bear {
     }
 
     public double attackPower() {
-        return 0.5 * getWeight();
-    }
+        return 0.5 * getWeight(); }
 
     public String whatIDo() {
         return "I am attacking";
