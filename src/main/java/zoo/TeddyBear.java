@@ -21,6 +21,11 @@ public class TeddyBear extends Bear {
     }
 
     @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
     public boolean feedBear(String foodtype, int foodWeight) {
         return super.feedBear(foodtype, foodWeight);
     }

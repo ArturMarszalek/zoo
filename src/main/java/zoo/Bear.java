@@ -20,7 +20,7 @@ public abstract class Bear {
     }
 
     public boolean feedBear(String foodtype, int foodWeight) {
-        weight = getWeight()+foodWeight;
+        weight = getWeight() + foodWeight;
         int feedTime = LocalDate.now().getDayOfYear();
         lastMeal = feedTime;
         System.out.println("Jem " + foodtype + " nie przeszkadzaj!");
@@ -30,7 +30,7 @@ public abstract class Bear {
     }
 
     boolean isItStillAlive() {
-        return lastMeal >= ifAlive;
+        return lastMeal >= ifAlive && weight > 0;
     }
 
     public int getWeight() {
@@ -41,24 +41,24 @@ public abstract class Bear {
         this.weight = weight;
     }
 
-    public int checkBearWeight(){
-        return getWeight()+meal;
+    public int checkBearWeight() {
+        return getWeight() + meal;
     }
 
-    public String getName(){
-
+    public String getName() {
         String name = getClass().getName();
         String[] s = name.split("\\.");
-        return s[s.length -1];
+        return s[s.length - 1];
     }
 
-    public String display(){
+    public String display() {
         System.out.println("Mój gatunek to: " + getName());
         return getName();
     }
 
-    public void attack(String BearOne, String BearTwo){
-        System.out.println(BearOne + " has attacked " + BearTwo);
+    public int attackPower() {
+        return checkBearWeight();
     }
+
 
 }

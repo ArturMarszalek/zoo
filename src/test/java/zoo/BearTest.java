@@ -21,28 +21,32 @@ class BearTest {
     }
 
 
-
     @Test
-   public void shouldCheckisItStillAlive() {
-        polarBear.feedBear("mięso",10);
+    public void shouldCheckisItStillAlive() {
+        polarBear.feedBear("mięso", 10);
         boolean isAlive = polarBear.isItStillAlive();
         assertTrue(isAlive);
         assertEquals(210, polarBear.weight);
     }
 
     @Test
-    public void shouldDisplayBearName(){
+    public void shouldDisplayBearName() {
 
         assertThat(polarBear.display()).isEqualTo("PolarBear");
         assertThat(brownBear.display()).isEqualTo("BrownBear");
         assertThat(blackBear.display()).isEqualTo("BlackBear");
     }
 
+//    @Test
+//    public void attacking(){
+//       String bearOne = polarBear.getName();
+//       String bearTwo = brownBear.getName();
+//       brownBear.attack(bearOne, bearTwo);
+//    }
+
     @Test
-    public void attacking(){
-       String bearOne = polarBear.getName();
-       String bearTwo = brownBear.getName();
-       brownBear.attack(bearOne, bearTwo);
+    public void attackingTest() {
+        assertEquals(100, polarBear.attackPower() - blackBear.attackPower());
     }
 
 }

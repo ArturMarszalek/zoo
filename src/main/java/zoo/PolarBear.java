@@ -38,7 +38,12 @@ public class PolarBear extends Bear {
     }
 
     @Override
-    public void attack(String BearOne, String BearTwo) {
-        super.attack(BearOne, BearTwo);
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public int attackPower() {
+        return super.attackPower();
     }
 }
