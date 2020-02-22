@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.SwitchPoint;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +24,7 @@ public class Zoo {
 
     public void feedAllTheBeast(){
         for (Animal animal : listOfAllAnimals) {
-            animal.eat(5);
+            animal.eat(5,currentDay);
         }
     }
     private void initializeAnimalsInZooFromStaticFile()   {
@@ -48,16 +49,16 @@ public class Zoo {
     private void createAnimalByType(String animalType) {
         switch (animalType) {
             case "BlackBear":
-                listOfAllAnimals.add(new BlackBear());
+                listOfAllAnimals.add(new BlackBear(currentDay));
                 break;
             case "PolarBear":
-                listOfAllAnimals.add(new PolarBear());
+                listOfAllAnimals.add(new PolarBear(currentDay));
                 break;
             case "BrownBear":
-                listOfAllAnimals.add(new BrownBear());
+                listOfAllAnimals.add(new BrownBear(currentDay));
                 break;
             case "TeddyBear":
-                listOfAllAnimals.add(new TeddyBear());
+                listOfAllAnimals.add(new TeddyBear(currentDay));
                 break;
             default:
                 System.out.println("Unhandles animal");
@@ -88,7 +89,19 @@ public class Zoo {
     public void feedSpecificBeast(String beastName) {
         List<Animal> Specific_bears = listOfAllAnimals.stream().filter(animal -> animal.getName().equals(beastName)).collect(Collectors.toList());
         for (Animal animal : Specific_bears){
-            animal.eat(5);
+            animal.eat(5 );
         }
+    }
+LocalDate currentDay = LocalDate.now();
+    public void setCurrentDay(LocalDate currentDay) {
+        this.currentDay = currentDay;
+        for (Animal animal : listOfAllAnimals) {
+            if (animal.isAlive(currentDay)){
+                System.out.println("All beasts are alive");
+            }else{
+                System.out.println("All animals are dead");
+            }
+        }
+
     }
 }

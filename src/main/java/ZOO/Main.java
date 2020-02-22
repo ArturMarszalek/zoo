@@ -2,13 +2,17 @@ package ZOO;
 
 import ZOO.Species.BlackBear;
 
-
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Zoo zoo = new Zoo();
+
+        ZooTimer zooTimer = new ZooTimer(zoo);
+        zooTimer.start();
+
         String result;
         System.out.println("Greetings in our ZOO\n" +
                 "Choose your option(\n" +
@@ -34,6 +38,7 @@ public class Main {
     private static void actionToBeDone(Zoo zoo, String result) {
         switch (result) {
             case "exit":
+                System.exit(1);
                 break;
             case "Feed All The Beasts":
                 zoo.feedAllTheBeast();
@@ -57,5 +62,26 @@ public class Main {
         }
     }
 
+    public static class ZooTimer extends Thread {
+        private Zoo zoo;
+        private int daysToAdd = 0;
 
+        public ZooTimer(Zoo zoo) {
+            this.zoo = zoo;
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            LocalDate currentDay = LocalDate.now().plusDays(daysToAdd);
+            System.out.println("Minał kolejny dzień" + currentDay);
+            daysToAdd++;
+            zoo.setCurrentDay(currentDay);
+            run();
+        }
+    }
 }
