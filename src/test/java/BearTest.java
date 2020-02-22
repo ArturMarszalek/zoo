@@ -103,8 +103,21 @@ public class BearTest {
         Bear polarBear = new PolarBear();
         //when
         //then
-        Assertions.assertEquals(blackBear.attack(brownBear), "Atakuje " + brownBear.getName());
+        Assertions.assertEquals(blackBear.attack(brownBear).toLowerCase(), "Atakuje Brown Bear".toLowerCase());
         Assertions.assertEquals(brownBear.attack(polarBear), "Atakuje " + polarBear.getName());
-        Assertions.assertEquals(polarBear.attack(blackBear), "Atakuje " + blackBear.getName());
+        Assertions.assertEquals(polarBear.attack(blackBear), polarBear.getName() + " Zabija " + blackBear.getName());
+    }
+
+
+    @Test
+    void shouldBearFightToDeath() {
+        //given
+        Bear brownBear = new BrownBear();
+        Bear polarBear = new PolarBear();
+        //when
+        //then
+
+        Assertions.assertEquals(0, polarBear.attack2(brownBear));
+
     }
 }

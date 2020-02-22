@@ -16,13 +16,11 @@ public abstract class Bear {
         return weight;
     }
 
-    public String display(){
-        return "Jestem "  + getName();
+    public String display() {
+        return "Jestem " + getName();
     }
 
-
-
-    public boolean isAlive(){
+    public boolean isAlive() {
         return lastMeal.isAfter(LocalDate.now().minusDays(10));
     }
 
@@ -38,4 +36,6 @@ public abstract class Bear {
     public LocalDate getMealTime() {
         return mealTime;
     }
+
+    public abstract double attack2(Bear target);
 }

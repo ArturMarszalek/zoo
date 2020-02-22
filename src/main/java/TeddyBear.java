@@ -9,12 +9,12 @@ public class TeddyBear extends Bear {
 
     @Override
     public String getName() {
-        return null;
+        return "Teddy Bear";
     }
 
     @Override
     public String attack(Bear target) {
-        return null;
+        return "Przytulam " + target.getName();
     }
 
     @Override
@@ -24,5 +24,10 @@ public class TeddyBear extends Bear {
 
     @Override
     public void eat(){
+    }
+
+    @Override
+    public double attack2(Bear target) {
+        return 0;
     }
 }

@@ -25,4 +25,9 @@ public class Blackbear extends Bear {
     public String attack(Bear target) {
         return "Atakuje " + target.getName();
     }
+
+    @Override
+    public double attack2(Bear target) {
+        return 0;
+    }
 }
