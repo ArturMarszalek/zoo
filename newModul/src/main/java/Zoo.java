@@ -25,22 +25,13 @@ public class Zoo {
     }
 
     public HashMap<String,Integer> getAnimalsCount(){
-        Integer countPolar = 0, countBrown=0, countBlack=0, countPlush=0;
-        for (Animal animal:animals){
-            if (animal.getName().equals("Polarbear")){
-                countPolar++;
-            }else if (animal.getName()==("Brownbear")){
-                countBrown++;
-            }else if (animal.getName().contains("Blackbear")){
-                countBlack++;
-            }else if (animal.getName().equals("Plushbear")){
-                countPlush++;
+            for (Animal animal : animals) {
+                if (mapaAnimali.containsKey(animal.getName())) {
+                    mapaAnimali.put(animal.getName(), (mapaAnimali.get(animal.getName()) + 1));
+                } else {
+                    mapaAnimali.put(animal.getName(), 1);
+                }
             }
-        }
-        mapaAnimali.put("PolarBear",countPolar);
-        mapaAnimali.put("BlackBear",countBlack);
-        mapaAnimali.put("BrownBear",countBrown);
-        mapaAnimali.put("PlushBear",countPlush);
         return mapaAnimali;
     }
 

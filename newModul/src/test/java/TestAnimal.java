@@ -134,9 +134,9 @@ assertEquals(28,liczbaAnimali);
     void shouldGetAnimalsCount(){
         Zoo zoo = new Zoo();
         HashMap<String,Integer> result=  zoo.getAnimalsCount();
-        assertEquals(20, result.get("PlushBear"));
-        assertEquals(2, result.get("PolarBear"));
-        assertEquals(4, result.get("BrownBear"));
-        assertEquals(2, result.get("BlackBear"));
+        assertEquals(20, result.get("Plushbear"));
+        assertEquals(2, result.get("Polarbear"));
+        assertEquals(4, result.get("Brownbear"));
+        assertEquals(2, result.get("Blackbear"));
     }
 }
