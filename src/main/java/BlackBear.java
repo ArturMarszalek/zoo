@@ -10,5 +10,13 @@ public class BlackBear extends Animal {
         super(lastMeat);
         weight = 100;
     }
+    @Override
+    public void eat(int mealWeight) {
+        System.out.println("Black Bear was feeded");
+    }
+    @Override
+    public String getName() {
+        return "BlackBear";
+    }
 
 }

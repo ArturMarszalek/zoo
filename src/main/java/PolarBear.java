@@ -9,4 +9,14 @@ public class PolarBear extends Animal {
         super(lastMeal);
         weight = 200;
     }
+
+    @Override
+    public void eat(int mealWeight) {
+        System.out.println("Polar Bear was feeded");
+    }
+
+    @Override
+    public String getName() {
+        return "PolarBear";
+    }
 }

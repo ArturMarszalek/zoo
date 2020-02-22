@@ -26,9 +26,9 @@ public class ZooTest {
         //when
         Map<String, Integer> result = zoo.getAnimalsCount();
         //then
-        assertEquals(20, result.get("Teddy"));
-        assertEquals(2, result.get("Polar"));
-        assertEquals(2, result.get("Black"));
-        assertEquals(4, result.get("Brown"));
+        assertEquals(20, result.get("TeddyBear"));
+        assertEquals(2, result.get("PolarBear"));
+        assertEquals(2, result.get("BlackBear"));
+        assertEquals(4, result.get("BrownBear"));
     }
 }

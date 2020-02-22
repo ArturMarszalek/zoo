@@ -1,45 +1,90 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Zoo  {
+public class Zoo {
 
     ArrayList<Animal> animals = new ArrayList<>();
-    public Zoo (){
-        animals.add(new PolarBear());
-        animals.add(new PolarBear());
-        animals.add(new BlackBear());
-        animals.add(new BlackBear());
-        animals.add(new BrownBear());
-        animals.add(new BrownBear());
-        animals.add(new BrownBear());
-        animals.add(new BrownBear());
-        for (int i = 0; i <20; i++) {
-            animals.add(new TeddyBear());
+
+    public Zoo() {
+        initializeAnimalsinZoo();
+    }
+
+    private void initializeAnimalsinZoo() {
+        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/Animals.txt"))) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] animalsDataFromFile = line.split(" ");
+                String animalType = animalsDataFromFile[0];
+                int animalCount = Integer.parseInt(animalsDataFromFile[1]);
+                getAnimalByType(animalType, animalCount);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+
         }
+    }
 
+    private void getAnimalByType(String animalType, int animalCount) throws Exception {
+        for (int i = 0; i < animalCount; i++) {
 
+            switch (animalType) {
+                case "BlackBear":
+                    animals.add(new BlackBear());
+                    break;
+                case "PolarBear":
+                    animals.add(new PolarBear());
+                    break;
+                case "TeddyBear":
+                    animals.add(new TeddyBear());
+                    break;
+                case "BrownBear":
+                    animals.add(new BrownBear());
+                    break;
+                default:
+                    throw new Exception("can't create new animal");
+            }
+        }
     }
 
 
-    public int getNumberOfAllAnimals(){
+    public int getNumberOfAllAnimals() {
         return animals.size();
 
     }
-    public Map<String, Integer> getAnimalsCount(){
-        Map<String,Integer> animalMap = new HashMap<>();
-        animalMap.put("Polar",0);
-        animalMap.put("Black",0);
-        animalMap.put("Brown",0);
-        animalMap.put("Teddy",0);
 
-        for (int i = 0; i <animals.size() ; i++) {
-         if(animals.get(i)instanceof PolarBear){animalMap.computeIfPresent("Polar",(k,v)-> v+1);}
-         if(animals.get(i)instanceof BlackBear){animalMap.computeIfPresent("Black",(k,v)-> v+1);}
-         if(animals.get(i)instanceof BrownBear){animalMap.computeIfPresent("Brown",(k,v)-> v+1);}
-         if(animals.get(i)instanceof TeddyBear){animalMap.computeIfPresent("Teddy",(k,v)-> v+1);}
+    public Map<String, Integer> getAnimalsCount() {
+        Map<String, Integer> animalMap = new HashMap<>();
+        for (Animal animal : animals) {
+            if (!animalMap.containsKey(animal.getName())) {
+                animalMap.put(animal.getName(), 1);
+            } else {
+                animalMap.put(animal.getName(), (animalMap.get(animal.getName()) + 1));
+
+            }
+
         }
         return animalMap;
+    }
+
+    public void feedAllAnimals(int mealWeigth) {
+        for (Animal animal : animals
+        ) {
+            animal.eat(mealWeigth);
+
+        }
+    }
+
+    public void feedOneTypeOfAnimal(Animal animalToFeed, int mealWeigth) {
+      for (Animal animal: animals){
+          if(animal.getClass() == animalToFeed.getClass()){
+              animal.eat(mealWeigth);
+          }
+      }
+
     }
 
 

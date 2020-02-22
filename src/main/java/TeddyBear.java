@@ -8,6 +8,11 @@ public class TeddyBear extends Animal {
 
     @Override
     public void eat(int mealWeight) {
+        System.out.println("Teddy Bear was feeded");
+    }
 
+    @Override
+    public String getName() {
+        return "TeddyBear";
     }
 }
