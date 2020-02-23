@@ -23,7 +23,7 @@ public class BlackBear extends Animal {
 
     @Override
     public boolean isAlive(LocalDate currentDay) {
-        return lastMeal.isAfter(currentDay.minusDays(5));
+        return super.isAlive(currentDay);
     }
 }
 

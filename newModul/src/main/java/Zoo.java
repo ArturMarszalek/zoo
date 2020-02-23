@@ -1,20 +1,17 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.stream.Collectors;
 
 public class Zoo {
 
     ArrayList<Animal> animalsList = new ArrayList<>();
-    LocalDate currentDay = LocalDate.now();
+    private LocalDate currentDay = LocalDate.now();
+
     public Zoo() {
-
-
-
         initializeAnimalsInZooFromStaticFile();
     }
 
@@ -89,7 +86,30 @@ public class Zoo {
     public void setCurrentDay(LocalDate currentDay) {
         this.currentDay = currentDay;
         for (Animal animal : animalsList) {
-            animal.isAlive(currentDay);
+            animal.isAlive(LocalDate.now());
         }
+    }
+
+    public void onDateChangeHandler(LocalDate currentDay) {
+        this.currentDay = currentDay;
+        displayNumberOfAliveAnimals();
+        animalsList = animalsList
+                .stream()
+                .filter(animal -> animal.isAlive(currentDay) || animal instanceof TeddyBear)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    private void displayNumberOfAliveAnimals() {
+        int allAnimalsCount = animalsList.size();
+        int allAliveAnimalsCount = getAllAliveAnimalsCount();
+        System.out.println(String.format("Zyje %s/%s zwierzat", allAliveAnimalsCount, allAnimalsCount));
+    }
+
+    private int getAllAliveAnimalsCount() {
+
+        return (int) animalsList
+                .stream()
+                .filter(animal -> animal.isAlive(currentDay))
+                .count();
     }
 }

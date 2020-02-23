@@ -30,8 +30,6 @@ public abstract class Animal {
     }
 
     public boolean isAlive(LocalDate currentDay) {
-        // przed ustawieniem timera smierci:
-        //return lastMeal.isAfter(LocalDate.now().minusDays(10)) && getWeight() > 0;
         return lastMeal.isAfter(currentDay.minusDays(10));
     }
 
