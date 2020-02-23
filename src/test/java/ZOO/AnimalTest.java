@@ -7,7 +7,6 @@ import ZOO.Species.TeddyBear;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -20,7 +19,7 @@ class AnimalTest {
         LocalDate lastMeal = LocalDate.now().minusDays(15);
         Animal littleBlackAnimal = new BlackBear(lastMeal);
         //when
-        boolean isAlive = littleBlackAnimal.isAlive();
+        boolean isAlive = littleBlackAnimal.isAlive(LocalDate.now());
         //then
         assertFalse(isAlive);
     }
@@ -42,7 +41,7 @@ class AnimalTest {
         //when
         littleBlackAnimal.eat(5);
         //then
-        assertTrue(littleBlackAnimal.isAlive());
+        assertTrue(littleBlackAnimal.isAlive(LocalDate.now()));
     }
 
     @Test
@@ -62,7 +61,7 @@ class AnimalTest {
         //when
 
         //then
-        assertFalse(teddyAnimal.isAlive());
+        assertFalse(teddyAnimal.isAlive(LocalDate.now()));
     }
 
     @Test
@@ -184,7 +183,7 @@ class AnimalTest {
         blackAnimal.attack(brownAnimal);
         blackAnimal.attack(brownAnimal);
         //then
-        assertFalse(brownAnimal.isAlive());
+        assertFalse(brownAnimal.isAlive(LocalDate.now()));
     }
 
     @Test
@@ -199,7 +198,7 @@ class AnimalTest {
         blackAnimal.attack(brownAnimal);
         //then
         assertEquals(50, brownAnimal.weight);
-        assertTrue(brownAnimal.isAlive());
+        assertTrue(brownAnimal.isAlive(LocalDate.now()));
     }
 
     @Test
@@ -211,7 +210,7 @@ class AnimalTest {
         //when
         polarAnimal.attack(brownAnimal);
         //then
-        assertFalse(brownAnimal.isAlive());
+        assertFalse(brownAnimal.isAlive(LocalDate.now()));
     }
 
     @Test
@@ -223,7 +222,7 @@ class AnimalTest {
         //when
         teddyAnimal.attack(brownAnimal);
         //then
-        assertTrue(brownAnimal.isAlive());
+        assertTrue(brownAnimal.isAlive(LocalDate.now()));
         assertEquals(200, brownAnimal.weight);
     }
 

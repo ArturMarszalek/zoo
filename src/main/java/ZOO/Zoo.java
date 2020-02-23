@@ -7,25 +7,21 @@ import ZOO.Species.TeddyBear;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import java.lang.invoke.SwitchPoint;
+import java.text.MessageFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Zoo {
     ArrayList<Animal> listOfAllAnimals = new ArrayList<>();
+    private LocalDate currentDay =  LocalDate.now();
 
     public Zoo()   {
         initializeAnimalsInZooFromStaticFile();
     }
 
-    public void feedAllTheBeast(){
-        for (Animal animal : listOfAllAnimals) {
-            animal.eat(5);
-        }
-    }
     private void initializeAnimalsInZooFromStaticFile()   {
         try {
 
@@ -48,16 +44,16 @@ public class Zoo {
     private void createAnimalByType(String animalType) {
         switch (animalType) {
             case "BlackBear":
-                listOfAllAnimals.add(new BlackBear());
+                listOfAllAnimals.add(new BlackBear(currentDay));
                 break;
             case "PolarBear":
-                listOfAllAnimals.add(new PolarBear());
+                listOfAllAnimals.add(new PolarBear(currentDay));
                 break;
             case "BrownBear":
-                listOfAllAnimals.add(new BrownBear());
+                listOfAllAnimals.add(new BrownBear(currentDay));
                 break;
             case "TeddyBear":
-                listOfAllAnimals.add(new TeddyBear());
+                listOfAllAnimals.add(new TeddyBear(currentDay));
                 break;
             default:
                 System.out.println("Unhandles animal");
@@ -66,13 +62,13 @@ public class Zoo {
     }
 
     public int getNumberOfAllAnimals() {
-
         return listOfAllAnimals.size();
     }
 
 
     public HashMap<String, Integer> getAnimalCount() {
         HashMap<String, Integer> animalCount = new HashMap<>();
+
         for (Animal animal : listOfAllAnimals) {
             String animalName = animal.getName();
 
@@ -82,13 +78,33 @@ public class Zoo {
                 animalCount.put(animalName, 1);
             }
         }
+
         return animalCount;
     }
 
-    public void feedSpecificBeast(String beastName) {
-        List<Animal> Specific_bears = listOfAllAnimals.stream().filter(animal -> animal.getName().equals(beastName)).collect(Collectors.toList());
-        for (Animal animal : Specific_bears){
-            animal.eat(5);
-        }
+    public void feedAllAnimals() {
+
+    }
+
+    public void onDateChangeHandler(LocalDate currentDay) {
+        this.currentDay = currentDay;
+        displayNumberOfAliveAnimals();
+        listOfAllAnimals = listOfAllAnimals
+                .stream()
+                .filter(animal -> animal.isAlive(currentDay) || animal instanceof TeddyBear)
+                .collect(Collectors.toCollection(ArrayList::new));
+    }
+
+    private void displayNumberOfAliveAnimals() {
+        int allAnimalsCount = listOfAllAnimals.size();
+        int aliveAnimalsCount = getAliveAnimalsCount();
+        System.out.println(MessageFormat.format("Zyje {0}/{1} zwierzat", aliveAnimalsCount, allAnimalsCount));
+    }
+
+    private int getAliveAnimalsCount() {
+        return Math.toIntExact(listOfAllAnimals
+                .stream()
+                .filter(animal -> animal.isAlive(currentDay))
+                .count());
     }
 }

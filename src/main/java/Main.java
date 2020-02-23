@@ -47,28 +47,4 @@ public class Main {
         System.out.println("How big will be meal?");
         return Integer.parseInt(scanCommand());
     }
-
-    public static class ZooTimer extends Thread {
-        private Zoo zoo;
-        private int daysToAdd = 0;
-
-        public ZooTimer(Zoo zoo) {
-            this.zoo = zoo;
-        }
-
-        @Override
-        public void run() {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            LocalDate currentDay = LocalDate.now().plusDays(daysToAdd);
-            System.out.println("Minał kolejny dzień" + currentDay);
-            daysToAdd++;
-            zoo.setCurrentDay(currentDay);
-            run();
-        }
-    }
-
 }
