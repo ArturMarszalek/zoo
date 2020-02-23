@@ -1,5 +1,7 @@
 package ZOO;
 
+import ZOO.Species.PolarBear;
+import ZOO.Species.TeddyBear;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -34,5 +36,14 @@ class ZooTest {
         Zoo zoo = new Zoo();
         int howMany = zoo.getAnimalsOverWeigth(70);
         assertEquals(6,howMany);
+    }
+
+    @Test
+    void shouldIsAliveTheBearClass(){
+        Zoo zoo = new Zoo();
+        boolean isAliveThat = zoo.hasAnyAlive(PolarBear.class);
+        assertEquals(true, isAliveThat);
+        isAliveThat=zoo.hasAnyAlive(TeddyBear.class);
+        assertEquals(false,isAliveThat);
     }
 }

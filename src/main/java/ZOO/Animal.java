@@ -25,9 +25,11 @@ public abstract class Animal {
     public boolean isAlive() {
         return lastMeal.isAfter((LocalDate.now().minusDays(10))) && weight > 0;
     }
-public boolean isAlive(LocalDate currentDay){
-        return lastMeal.isAfter((currentDay.minusDays(10)))&&weight>0;
-}
+
+    public boolean isAlive(LocalDate currentDay) {
+        return lastMeal.isAfter((currentDay.minusDays(10))) && weight > 0;
+    }
+
     public void eat(int foodWeight) {
         lastMeal = LocalDate.now();
         weight = weight + foodWeight;

@@ -49,16 +49,16 @@ public class Zoo {
     private void createAnimalByType(String animalType) {
         switch (animalType) {
             case "BlackBear":
-                listOfAllAnimals.add(new BlackBear());
+                listOfAllAnimals.add(new BlackBear(LocalDate.now()));
                 break;
             case "PolarBear":
-                listOfAllAnimals.add(new PolarBear());
+                listOfAllAnimals.add(new PolarBear(LocalDate.now()));
                 break;
             case "BrownBear":
-                listOfAllAnimals.add(new BrownBear());
+                listOfAllAnimals.add(new BrownBear(LocalDate.now()));
                 break;
             case "TeddyBear":
-                listOfAllAnimals.add(new TeddyBear());
+                listOfAllAnimals.add(new TeddyBear(LocalDate.now()));
                 break;
             default:
                 System.out.println("Unhandles animal");
@@ -114,5 +114,11 @@ public class Zoo {
                 .count();
 
 
+    }
+
+    public boolean hasAnyAlive(Class bearClass) {
+        return listOfAllAnimals
+                .stream()
+                .anyMatch(animal -> bearClass.isInstance(animal)&&animal.isAlive());
     }
 }

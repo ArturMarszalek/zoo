@@ -24,6 +24,11 @@ public class TeddyBear extends Animal {
     }
 
     @Override
+    public boolean isAlive(LocalDate currentDay) {
+        return false;
+    }
+
+    @Override
     public void eat() {
     }
 
