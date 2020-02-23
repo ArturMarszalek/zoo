@@ -10,10 +10,11 @@ public class BlackBear extends Animal {
 
     public BlackBear(LocalDate lastMeal) {
         super(lastMeal);
+        weight=200;
     }
 
     public BlackBear() {
-
+        weight=200;
     }
 
     @Override

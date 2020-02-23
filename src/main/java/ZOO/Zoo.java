@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.SwitchPoint;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -90,5 +91,28 @@ public class Zoo {
         for (Animal animal : Specific_bears){
             animal.eat(5);
         }
+    }
+
+    public void setCurrentDay(LocalDate currentDay) {
+        currentDay=LocalDate.now();
+    }
+
+    public int getIsAlive(LocalDate currentDay){
+        int countIsALive =0;
+        for (Animal animal:listOfAllAnimals){
+            if (animal.isAlive(currentDay)){
+                countIsALive++;
+            }
+        }
+        return countIsALive;
+    }
+
+    public int getAnimalsOverWeigth(int weigth) {
+        return (int) listOfAllAnimals
+                .stream()
+                .filter(animal -> animal.getWeight()>weigth)
+                .count();
+
+
     }
 }

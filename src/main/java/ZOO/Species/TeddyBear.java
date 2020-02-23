@@ -7,9 +7,11 @@ import java.time.LocalDate;
 public class TeddyBear extends Animal {
     public TeddyBear(LocalDate lastMeal) {
         super(lastMeal);
+        weight=20;
     }
 
     public TeddyBear() {
+        weight=20;
     }
 
     public TeddyBear(int weight) {

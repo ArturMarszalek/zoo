@@ -7,9 +7,11 @@ import java.time.LocalDate;
 public class PolarBear extends Animal {
     public PolarBear(LocalDate lastMeal) {
         super(lastMeal);
+        weight=50;
     }
 
     public PolarBear() {
+        weight=50;
     }
 
     public PolarBear(int weight) {

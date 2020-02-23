@@ -29,4 +29,10 @@ class ZooTest {
         assertEquals(4, result.get("Brown Bear"));
         assertEquals(20, result.get("Teddy Bear"));
     }
+    @Test
+    void shouldIsHavierThan(){
+        Zoo zoo = new Zoo();
+        int howMany = zoo.getAnimalsOverWeigth(70);
+        assertEquals(6,howMany);
+    }
 }

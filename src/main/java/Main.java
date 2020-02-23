@@ -19,7 +19,7 @@ public class Main {
         String command = scanCommand();
         switch (command) {
             case "feed all":
-                zoo.feedAllAnimals();
+                zoo.feedAllTheBeast();
                 break;
             case "feed polar bear":
                 break;
