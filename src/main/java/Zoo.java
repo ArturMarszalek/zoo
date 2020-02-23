@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Zoo {
+public class Zoo extends ZOO.Zoo {
 
     ArrayList<Animal> animals = new ArrayList<>();
 
@@ -79,13 +79,20 @@ public class Zoo {
     }
 
     public void feedOneTypeOfAnimal(Animal animalToFeed, int mealWeigth) {
-      for (Animal animal: animals){
-          if(animal.getClass() == animalToFeed.getClass()){
-              animal.eat(mealWeigth);
-          }
-      }
-
+        for (Animal animal : animals) {
+            if (animal.getClass() == animalToFeed.getClass()) {
+                animal.eat(mealWeigth);
+            }
+        }
     }
 
+    public int animalsHeavierThan(int weight) {
+        int count = 0;
+        for (Animal animal : animals){
+            if (animal.getWeight() > weight)
+            count++;
+        }
+        return count;
+    }
 
 }

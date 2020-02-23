@@ -20,7 +20,7 @@ public class ZooTest {
     }
 
     @Test
-    void ShouldReturnNubmerOfTeddyBears() {
+    void ShouldReturnNumberOfTeddyBears() {
         //given
         Zoo zoo = new Zoo();
         //when
@@ -30,5 +30,17 @@ public class ZooTest {
         assertEquals(2, result.get("PolarBear"));
         assertEquals(2, result.get("BlackBear"));
         assertEquals(4, result.get("BrownBear"));
+    }
+
+    @Test
+    void getAnimalsCountWhichIsHeavierThan() {
+        Zoo zoo = new Zoo();
+        int result = zoo.animalsHeavierThan(199);
+        assertEquals(2,result);
+    }
+
+    @Test
+    void isAnimalAlive() {
+
     }
 }
