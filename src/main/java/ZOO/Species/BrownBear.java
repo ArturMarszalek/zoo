@@ -21,4 +21,7 @@ public class BrownBear extends Animal {
         return "Brown Bear";
     }
 
+    public BrownBear(int weight, LocalDate lastMeal) {
+        super(weight, lastMeal);
+    }
 }

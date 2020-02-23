@@ -36,4 +36,7 @@ public class TeddyBear extends Animal {
         return "You "+target.getName()+" are hugged by "+getName();
     }
 
+    public boolean TeddyBear(LocalDate lastMeal) {
+        return false;
+    }
 }

@@ -25,4 +25,7 @@ public class BlackBear extends Animal {
         super(weight);
     }
 
+    public BlackBear(int weight, LocalDate lastMeal) {
+        super(weight, lastMeal);
+    }
 }

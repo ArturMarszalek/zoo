@@ -27,4 +27,7 @@ public class PolarBear extends Animal {
         return "Polar Bear";
     }
 
+    public PolarBear(int weight, LocalDate lastMeal) {
+        super(weight, lastMeal);
+    }
 }
