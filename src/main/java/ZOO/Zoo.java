@@ -20,7 +20,7 @@ public class Zoo {
     LocalDate currentDay = LocalDate.now();
 
     public void setCurrentDay(LocalDate currentDay) {
-        int count=0;
+        int count = 0;
         this.currentDay = currentDay;
         checkHowManyAnimalsAreAlive(currentDay, count);
 
@@ -28,7 +28,7 @@ public class Zoo {
 
     private void checkHowManyAnimalsAreAlive(LocalDate currentDay, int count) {
         for (Animal animal : listOfAllAnimals) {
-            if (animal.isAlive(currentDay)){
+            if (animal.isAlive(currentDay)) {
                 count++;
             }
         }
@@ -36,21 +36,21 @@ public class Zoo {
     }
 
     private void showAliveAnimalsCount(int count) {
-        
-        if (count == listOfAllAnimals.size()){
+
+        if (count == listOfAllAnimals.size()) {
             System.out.println("All animals are Alive");
-        }else if (count==0){
+        } else if (count == 0) {
             System.out.println("All animals are Dead");
-        }else{
-            System.out.println(count+"/"+listOfAllAnimals.size()+" are Alive");
+        } else {
+            System.out.println(count + "/" + listOfAllAnimals.size() + " are Alive");
         }
     }
 
-    public Zoo()   {
+    public Zoo() {
         initializeAnimalsInZooFromStaticFile();
     }
 
-    private void initializeAnimalsInZooFromStaticFile()   {
+    private void initializeAnimalsInZooFromStaticFile() {
         try {
 
             BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\Animals.txt"));
@@ -71,13 +71,13 @@ public class Zoo {
     private void createAnimalByType(String animalType) {
         switch (animalType) {
             case "BlackBear":
-                listOfAllAnimals.add(new BlackBear(5,currentDay));
+                listOfAllAnimals.add(new BlackBear(5, currentDay));
                 break;
             case "PolarBear":
-                listOfAllAnimals.add(new PolarBear(5,currentDay));
+                listOfAllAnimals.add(new PolarBear(5, currentDay));
                 break;
             case "BrownBear":
-                listOfAllAnimals.add(new BrownBear(5,currentDay));
+                listOfAllAnimals.add(new BrownBear(5, currentDay));
                 break;
             case "TeddyBear":
                 listOfAllAnimals.add(new TeddyBear(currentDay));
@@ -107,15 +107,27 @@ public class Zoo {
         }
         return animalCount;
     }
-    public void feedAllTheBeast(){
+
+    public void feedAllTheBeast() {
         for (Animal animal : listOfAllAnimals) {
-            animal.eat(5,currentDay);
+            animal.eat(5, currentDay);
         }
     }
+
     public void feedSpecificBeast(String beastName) {
         List<Animal> Specific_bears = listOfAllAnimals.stream().filter(animal -> animal.getName().equals(beastName)).collect(Collectors.toList());
-        for (Animal animal : Specific_bears){
-            animal.eat(5,currentDay );
+        for (Animal animal : Specific_bears) {
+            animal.eat(5, currentDay);
         }
+    }
+
+    public int getAnimalsCountWhichIsHeavierThan(int weight) {
+        return (int) listOfAllAnimals.stream().filter(animal -> animal.getWeight() > weight).count();
+
+    }
+
+    public boolean hasAnyAlive(Class blackBearClass) {
+        return listOfAllAnimals.stream().anyMatch(animal -> blackBearClass.isInstance(animal));
+
     }
 }
