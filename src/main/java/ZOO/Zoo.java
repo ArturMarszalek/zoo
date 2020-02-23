@@ -4,6 +4,8 @@ import ZOO.Species.BlackBear;
 import ZOO.Species.BrownBear;
 import ZOO.Species.PolarBear;
 import ZOO.Species.TeddyBear;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -18,7 +20,7 @@ import java.util.stream.Collectors;
 public class Zoo {
     ArrayList<Animal> listOfAllAnimals = new ArrayList<>();
     LocalDate currentDay = LocalDate.now();
-
+    private static final Logger _logger =  LogManager.getLogger(Zoo.class);
     public void setCurrentDay(LocalDate currentDay) {
         int count = 0;
         this.currentDay = currentDay;
@@ -38,11 +40,11 @@ public class Zoo {
     private void showAliveAnimalsCount(int count) {
 
         if (count == listOfAllAnimals.size()) {
-            System.out.println("All animals are Alive");
+            _logger.info("All animals are Alive");
         } else if (count == 0) {
-            System.out.println("All animals are Dead");
+            _logger.info("All animals are Dead");
         } else {
-            System.out.println(count + "/" + listOfAllAnimals.size() + " are Alive");
+            _logger.info(count + "/" + listOfAllAnimals.size() + " are Alive");
         }
     }
 
@@ -83,7 +85,7 @@ public class Zoo {
                 listOfAllAnimals.add(new TeddyBear(currentDay));
                 break;
             default:
-                System.out.println("Unhandles animal");
+                _logger.error("Unhandles animal");
                 break;
         }
     }

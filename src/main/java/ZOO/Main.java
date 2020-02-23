@@ -12,7 +12,6 @@ public class Main {
 
         ZooTimer zooTimer = new ZooTimer(zoo);
         zooTimer.start();
-
         String result;
         System.out.println("Greetings in our ZOO\n" +
                 "Choose your option(\n" +
@@ -78,7 +77,7 @@ public class Main {
                 e.printStackTrace();
             }
             LocalDate currentDay = LocalDate.now().plusDays(daysToAdd);
-            System.out.println("Minał kolejny dzień" + currentDay);
+            System.out.println("Minał kolejny dzień " + currentDay);
             daysToAdd++;
             zoo.setCurrentDay(currentDay);
             run();
